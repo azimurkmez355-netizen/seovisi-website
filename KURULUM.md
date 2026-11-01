@@ -7,6 +7,11 @@ Teknik bilgi gerekmez; sırayla ilerleyin. Bir adımda takılırsanız ekran gö
 > Bu rehberdeki hiçbir adımda **o kayda dokunulmaz**: değeri değiştirilmez, silinmez, taşınmaz.
 > Değişen yalnızca `seovisi.com.tr` ve `www.seovisi.com.tr` olur.
 
+> **Yalnızca test etmek istiyorsanız:** 2. ve 3. adımlar yeterlidir. Site birkaç dakika içinde
+> `seovisi-website.pages.dev` gibi bir deneme adresinde açılır; telefondan ve bilgisayardan
+> deneyebilirsiniz. Alan adına (DNS) dokunmanız gerekmez. Her güncellemede bu adres de kendiliğinden
+> yenilenir.
+
 ---
 
 ## 1. Nerede yayınlayalım? (karşılaştırma)

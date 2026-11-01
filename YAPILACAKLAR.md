@@ -86,9 +86,11 @@ Size soru sormadan ilerlemem istendiği için bazı konularda kendim karar verdi
 6. **Ek SSS soruları:** İstediğiniz 7 sorunun yanına sizin metninizdeki bilgilerle şunları ekledim:
    kurulum, panel nerede açılır, hangi sektörler, Google'da ilk sıra (sıralama sözü verilmediğini
    açıklıyor), otomatik gönderim güvenli mi, fiyatlar. İstemediğiniz olursa çıkarırım.
-7. **Ana sayfadaki kontrol ızgarası:** "seovisi her ürünü bu başlıklarda kontrol eder" altında 9
-   başlık var: sayfa başlığı, meta açıklama, ürün açıklaması, kategori, görsel, kopya ürün, fiyat,
-   indirim, stok. Hepsi özellik listenizden; yine de doğru olup olmadığına bakın.
+7. **Ana sayfadaki canlı "ürün taraması" paneli ve çizimler:** Bunlar ekran görüntüsü değil, ne
+   yaptığımızı anlatan temsilî çizimlerdir. Paneldeki sütunlar (SEO, Kategori, Görsel, Fiyat) ve
+   durumlar (Tamam, İşlem bekliyor, Eksik) özellik listenizden alındı. Kategori çizimindeki
+   "Ayakkabı / Bot / Spor ayakkabı" örnek adlardır ve üzerinde "Örnek" etiketi var. Panelin gerçek
+   görünümü farklıysa çizimleri ona yaklaştırabilirim.
 8. **Arama sonuçlarında yıldız görünmez:** Ana sayfada istenen `SoftwareApplication` yapısal verisi
    var, ama Google yazılımlarda yıldızlı / zengin sonuç göstermek için kullanıcı puanı ister. Sahte
    puan eklenmedi; bu yüzden zengin sonuç çıkmayabilir. Gerçek puanlar olunca eklenebilir.

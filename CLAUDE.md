@@ -42,6 +42,21 @@ sonuçlar, hukuki metinler) **`YAPILACAKLAR.md`** listesindedir; doldurulan madd
   "PAKET BİLGİLERİ" bloğunda yazar; başka sayfada tekrar etme.
 - Yer tutucuların yanında `YER-TUTUCU` yorumu bulunur.
 
+## Tasarım dili (2. sürüm)
+
+- Koyu zemin (`--gece` #14151B) üzerinde açık, yuvarlak köşeli `.yaprak` bölümler. Koyu bölümler
+  `.bolum`, açık bölümler `.yaprak` sınıfıyla yazılır; renkler `site/css/site.css` başındaki
+  değişkenlerden gelir. Logo koyu zemin sürümü (`marka/seovisi-logo-koyu-zemin.svg`) kullanılır.
+- Ana motif logodaki 3×3 "tarama ızgarası": gri → mavi (taranıyor) → yeşil (tamam).
+- Hareket kuralları: yalnızca `transform`/`opacity` (ve `translate`/`scale`/`rotate`) canlandırılır;
+  **yazı içeren öğelerin opaklığı canlandırılmaz** (erişilebilirlik denetimi). Bütün hareketler
+  `prefers-reduced-motion: no-preference` içinde; temel stil hareketin son hâlidir.
+  Kaydırınca belirme için öğeye `belir` sınıfı verilir (CSS kaydırma zaman çizelgesi, betik yok).
+- Ana sayfadaki çizimler (ürün taraması paneli, kategori ağacı, otopilot, şablonlar) temsilîdir;
+  gerçek panel ekranı gibi sunulmaz. Örnek veri içeren çizimlerde "Örnek" etiketi bulunur.
+- Ekranın altındaki ana bölümler `content-visibility: auto` ile ertelenir (hızlı açılış). Tam sayfa
+  ekran görüntüsü alırken test aracında bu özelliği kapatın, yoksa bölümler boş görünür.
+
 ## SEO kuralları (bu bir SEO ürününün sitesi)
 
 - Her sayfada benzersiz `<title>` ve meta açıklama, `canonical` (`https://seovisi.com.tr/...`),
@@ -53,7 +68,8 @@ sonuçlar, hukuki metinler) **`YAPILACAKLAR.md`** listesindedir; doldurulan madd
   (SSS metni değişirse JSON-LD'yi de değiştir).
 - Yeni sayfa: `site/sitemap.xml`'e ekle. Taslak / bilgi sayfaları `noindex` olur ve site haritasına
   girmez (şu an: hukuki sayfalar, `app-store-yakinda`, `404`).
-- Hedef: Lighthouse'ta performans, erişilebilirlik, en iyi uygulamalar ve SEO 95+ (şu an 100).
+- Hedef: Lighthouse'ta performans, erişilebilirlik, en iyi uygulamalar ve SEO 95+ (şu an ana sayfalarda
+  mobilde ve masaüstünde 100).
 
 ## Klasör yapısı
 
