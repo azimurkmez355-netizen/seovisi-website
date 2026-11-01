@@ -370,6 +370,8 @@ strong { font-weight: 700; }
 
 /* Tarama ızgarası (giriş görseli) */
 .tarama {
+  width: 100%;
+  max-width: 540px;
   margin: 0;
   padding: clamp(1.1rem, 3vw, 1.75rem);
   border: 1px solid var(--cizgi);
