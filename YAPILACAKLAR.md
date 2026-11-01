@@ -21,8 +21,9 @@ güncellenir ve bu listeden düşer. (Teknik not: kodda her yer tutucunun yanın
 
 ### Ekran görüntüleri listesi
 
-Önerilen boyut **1600 × 1000 piksel** (yatay, 16:10). PNG olarak gönderebilirsiniz; Claude bunları
-hızlı yüklenen WebP biçimine çevirip iki boyutta yerleştirir.
+Bilgisayarda tam ekran alınmış, yatay bir ekran görüntüsü yeterli (ne kadar büyükse o kadar net).
+PNG olarak gönderebilirsiniz; Claude gizli bilgileri bulanıklaştırır, vitrin görünümüne getirir ve
+hızlı yüklenen WebP biçiminde iki boyutta yerleştirir.
 
 | Ekran | Dosya adı | Kullanıldığı sayfalar | Durum |
 |---|---|---|---|
@@ -39,9 +40,11 @@ Gönderdiğiniz **Görseller** ekranında henüz tarama yapılmadığı için ta
 şimdilik kullanmadım. Tarama sonrası bir görüntüsünü gönderirseniz ekleriz. Aylık rapor da isteğe
 bağlı olarak eklenebilir.
 
-**Not:** Gönderdiğiniz görüntülerde **Ustapazar** mağazasının adı, ürün adları ve sayıları görünüyor.
-Bu mağaza sizinse sorun yok; başkasınınsa izin alın ya da söyleyin, mağaza adını ve ürünleri
-bulanıklaştırayım. Görüntülerin sağındaki boş alan ve ekran alıntısı aracı bildirimi kırpıldı.
+**Not:** Görüntülerdeki mağaza adı, ürün adları ve stok kodları **bulanıklaştırıldı**. Görüntüler
+"vitrin" görünümünde: koyu, ışıklı bir zeminde pencere olarak duruyor, önemli bölüm yakın çekim
+kartında büyütülüyor. Sağdaki boş alan ve ekran alıntısı aracı bildirimi kırpıldı. Ürün sayıları ve
+puanlar görünür kaldı; bunların da gizlenmesini isterseniz söyleyin. Yeni gönderdiğiniz ekranlar da
+aynı şekilde hazırlanır (teknik not: `araclar/vitrin/`).
 
 ### Örnek sonuçlar bölümünü gizlemek
 

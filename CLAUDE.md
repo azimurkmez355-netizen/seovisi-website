@@ -26,7 +26,8 @@ sonuçlar, hukuki metinler) **`YAPILACAKLAR.md`** listesindedir; doldurulan madd
   değiştirilmez. Metinde ad "Ideasoft" yazılır.
 - "Yakında" özellikleri ya hiç yazılmaz ya da açıkça "Yakında" etiketiyle yazılır.
 - Fiyat yazılmaz (kesinleşmedi): "Fiyatlar ve satın alma Ideasoft App Store'da." Sitede ödeme alınmaz.
-- Panel ekran görüntüleri gelene kadar açıkça işaretli yer tutucu kullanılır.
+- Panel ekran görüntüleri gelene kadar açıkça işaretli yer tutucu kullanılır. Gerçek görüntülerde
+  mağaza adı, ürün adları ve stok kodları bulanıklaştırılır (`araclar/vitrin/`).
 - Çerez, analiz aracı, dış betik yok. Eklenirse önce çerez bildirimi ve politika güncellenir.
 
 ## Teknik çerçeve
@@ -66,6 +67,9 @@ sonuçlar, hukuki metinler) **`YAPILACAKLAR.md`** listesindedir; doldurulan madd
 - Sayfalar arası geçiş CSS `@view-transition` ile yapılır (betik yok, hareketi azalt ayarında kapalı).
 - Ekranın altındaki ana bölümler `content-visibility: auto` ile ertelenir (hızlı açılış). Tam sayfa
   ekran görüntüsü alırken test aracında bu özelliği kapatın, yoksa bölümler boş görünür.
+- Panel ekran görüntüleri `<figure class="vitrin">` içinde, ek çerçeve olmadan gösterilir: pencere
+  çerçevesi, koyu ışıklı zemin ve yakın çekim kartı görselin kendisindedir. Yeni ekran görüntüsü
+  `araclar/vitrin/hazirla.py` ile bu görünüme getirilir (adımlar `araclar/vitrin/BENIOKU.md`).
 
 ## SEO kuralları (bu bir SEO ürününün sitesi)
 
@@ -73,7 +77,7 @@ sonuçlar, hukuki metinler) **`YAPILACAKLAR.md`** listesindedir; doldurulan madd
   `lang="tr"`, Open Graph ve Twitter kartı, paylaşım görseli (`site/gorseller/paylasim/`).
 - Tek `<h1>`, başlık sırası atlanmaz.
 - Görsellerde `alt`, `width`, `height`; içerik görselleri WebP ve `loading="lazy"`. Ekran
-  görüntüleri iki boyutta: `ad-800.webp` ve `ad-1600.webp` (`srcset` ile).
+  görüntüleri iki boyutta (1600×1000 vitrin görseli): `ad-800.webp` ve `ad-1600.webp` (`srcset` ile).
 - Yapısal veri: ana sayfada `Organization` + `WebSite` + `SoftwareApplication`, SSS'de `FAQPage`
   (SSS metni değişirse JSON-LD'yi de değiştir).
 - Yeni sayfa: `site/sitemap.xml`'e ekle. Taslak / bilgi sayfaları `noindex` olur ve site haritasına
@@ -91,12 +95,13 @@ site/                 yayınlanan klasör
   js/site.js          cam üst menü (zemine göre koyu/açık), mobil menü, fareyle ışık ve eğim
   fontlar/            Plus Jakarta Sans (Latin + Türkçe alt küme) ve OFL lisansı
   marka/              logo, işaret, favicon, uygulama ikonları
-  gorseller/ekran/    panel ekran görüntüleri (şimdilik yer tutucular)
+  gorseller/ekran/    panel ekran görüntüleri (vitrin görünümünde; gelmeyenler yer tutucu)
   gorseller/paylasim/ sayfa başına paylaşım (Open Graph) görselleri, 1200×630
   _headers, _redirects, robots.txt, sitemap.xml, site.webmanifest, favicon.ico
 araclar/              yayına girmez
   onizleme.py         yerel önizleme (Cloudflare Pages'i taklit eder): python3 araclar/onizleme.py
   kontrol.py          site kontrolü: python3 araclar/kontrol.py
+  vitrin/             ekran görüntüsünü bulanıklaştırıp vitrin görseline çevirir (BENIOKU.md)
 URUN-BILGISI.md       içeriğin tek kaynağı
 YAPILACAKLAR.md       yer tutucular ve sahibin kontrol edeceği kararlar
 KURULUM.md            yayın ve DNS adımları

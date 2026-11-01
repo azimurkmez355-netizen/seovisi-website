@@ -1001,35 +1001,15 @@ strong, b { font-weight: 700; }
 }
 .tur-aciklama { max-width: 44em; margin: 1.4rem auto 0; color: var(--gece-soluk); text-align: center; }
 
-/* Tarayıcı çerçevesi */
-.cerceve {
-  position: relative;
-  margin: 0;
-  padding: .6rem;
+/* Vitrin: ekran görüntüleri (kendi pencere çerçeveleri görselin içinde) */
+.vitrin { position: relative; margin: 0; }
+.vitrin img {
+  width: 100%;
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .02));
+  background: #111218;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, .1), 0 50px 100px -40px rgba(0, 0, 0, .85), 0 0 120px -40px rgba(90, 112, 255, .45);
 }
-.cerceve-ust { display: flex; align-items: center; gap: .75rem; padding: .3rem .5rem .7rem; }
-.cerceve-adres {
-  flex: 1;
-  max-width: 320px;
-  margin-inline: auto;
-  padding: .25rem .8rem;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, .06);
-  color: var(--gece-soluk);
-  font-size: .76rem;
-  text-align: center;
-}
-.cerceve img { width: 100%; border-radius: 14px; background: #20222B; }
-.yaprak .cerceve {
-  background: linear-gradient(180deg, #FFFFFF, #F1F2F5);
-  box-shadow: 0 0 0 1px var(--cizgi), 0 40px 80px -40px rgba(21, 22, 26, .35);
-}
-.yaprak .noktalar i { background: #D3D6DD; }
-.yaprak .cerceve-adres { background: #E9EBEF; color: var(--soluk); }
-.yaprak .cerceve img { background: var(--acik-2); }
+.yaprak .vitrin img { box-shadow: 0 0 0 1px rgba(21, 22, 26, .08), 0 40px 80px -36px rgba(21, 22, 26, .5); }
 
 /* ---------- 11. Sorun → çözüm kartları ---------- */
 .sorun-izgara { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
@@ -1860,7 +1840,7 @@ main > .bolum, main > .cagri { background-image: url("data:image/svg+xml,<svg xm
   .serit:hover .serit-ic { animation-play-state: paused; }
 
   /* Panel turu: seçilen ekran yumuşakça gelir */
-  .tur-panel .cerceve { animation: tur-gir .5s var(--egri) both; }
+  .tur-panel .vitrin { animation: tur-gir .5s var(--egri) both; }
 
   /* Çizimler */
   .k-urun { animation: k-tasi 6s var(--egri) infinite; }
