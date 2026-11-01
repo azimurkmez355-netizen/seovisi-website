@@ -1,0 +1,8 @@
+# seovisi.com.tr — yönlendirmeler (Cloudflare Pages bu dosyayı okur)
+#
+# Sitedeki bütün "Ideasoft App Store'da incele" düğmeleri /app-store adresine gider.
+# Ideasoft App Store adresi belli olunca YALNIZCA aşağıdaki satırdaki ikinci adresi değiştirin:
+#   /app-store  https://(App Store'daki seovisi sayfasının adresi)  302
+#
+# YER-TUTUCU: App Store adresi henüz yok; şimdilik "hazırlanıyor" sayfasına gidiyor.
+/app-store  /app-store-yakinda  302

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Arama motorlarına açık sayfalar. Hukuki metinler taslak olduğu için şimdilik listede yok;
+     metinleri eklenince buraya da ekleyin (bkz. YAPILACAKLAR.md). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://seovisi.com.tr/</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://seovisi.com.tr/ozellikler</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://seovisi.com.tr/nasil-calisir</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://seovisi.com.tr/paketler</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://seovisi.com.tr/sss</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://seovisi.com.tr/iletisim</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+</urlset>

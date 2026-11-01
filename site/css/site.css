@@ -355,6 +355,9 @@ strong { font-weight: 700; }
 }
 .vaat .tik { margin-top: .1em; }
 .kahraman-not { margin-top: 1.1rem; color: var(--soluk); font-size: .95rem; }
+@media (max-width: 479.98px) {
+  .kahraman .dugmeler .dugme, .cagri .dugmeler .dugme { flex: 1 1 100%; }
+}
 
 /* Yeşil kare içinde tik işareti */
 .tik {
@@ -517,6 +520,10 @@ strong { font-weight: 700; }
 .etiket-cozum { background: var(--yesil-acik); color: var(--yesil-yazi); }
 .etiket-cozum::before { background: var(--yesil); }
 .satir-sorun { color: var(--soluk); }
+@media (max-width: 599.98px) {
+  .satir { grid-template-columns: 1fr; gap: .35rem; }
+  .satir .etiket { justify-self: start; }
+}
 
 /* ---------- Özellik satırları (metin + ekran görüntüsü) ---------- */
 .ozellik-satirlari { display: grid; gap: clamp(4rem, 9vw, 7rem); }
@@ -586,22 +593,20 @@ strong { font-weight: 700; }
 .adimlar h3 { margin-bottom: .45em; }
 .adimlar p { color: var(--soluk); margin: 0; }
 .adimlar .alt-adimlar { margin: .9rem 0 0; padding-left: 1.2em; color: var(--soluk); }
+/* Dikey adımlar: numara solda, metin sağda (yanında görsel olan yerler için) */
+.adimlar.adimlar-dikey { grid-template-columns: 1fr; gap: .75rem; }
+.adimlar-dikey > li { padding-left: 4.6rem; }
+.adimlar-dikey > li::before { position: absolute; left: 1.4rem; top: 1.45rem; margin: 0; }
 .adimlar .alt-adimlar li { margin-bottom: .3rem; }
 
 /* ---------- Koyu vurgu bölümü (çağrı) ---------- */
-.cagri { position: relative; overflow: hidden; }
-.cagri-ic { display: grid; gap: 2rem; align-items: center; }
-@media (min-width: 1024px) { .cagri-ic { grid-template-columns: minmax(0, 1.4fr) auto; gap: 4rem; } }
+.cagri-ic { display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 900px) { .cagri-ic { grid-template-columns: minmax(0, 1fr) auto; gap: 5rem; } }
 .cagri h2 { margin-bottom: .45em; }
-.cagri p { color: var(--k-soluk); font-size: 1.125rem; max-width: 40em; }
-.cagri-izgara {
-  position: absolute;
-  right: -40px; bottom: -40px;
-  width: 260px; height: 260px;
-  opacity: .5;
-  pointer-events: none;
-}
-@media (max-width: 1023.98px) { .cagri-izgara { width: 180px; height: 180px; right: -50px; bottom: -60px; opacity: .3; } }
+.cagri-metin > p:not(.ust-yazi) { color: var(--k-soluk); font-size: 1.125rem; max-width: 36em; }
+.cagri .dugmeler { margin-top: 2rem; }
+.cagri-izgara { width: 220px; height: 220px; }
+@media (max-width: 899.98px) { .cagri-izgara { display: none; } }
 
 /* ---------- Güvenlik listesi (koyu zeminde kutular) ---------- */
 .guven-listesi {
@@ -642,6 +647,12 @@ strong { font-weight: 700; }
   mask-image: radial-gradient(ellipse 50% 90% at 95% 0%, #000 5%, transparent 70%);
 }
 .sayfa-bas > .kap { position: relative; z-index: 1; }
+@media (max-width: 599.98px) {
+  .kahraman::before, .sayfa-bas::before {
+    -webkit-mask-image: radial-gradient(ellipse 45% 30% at 100% 0%, #000 5%, transparent 75%);
+    mask-image: radial-gradient(ellipse 45% 30% at 100% 0%, #000 5%, transparent 75%);
+  }
+}
 .sayfa-bas h1 { font-size: clamp(2.2rem, 1.5rem + 3.2vw, 3.6rem); max-width: 16em; }
 .sayfa-bas .giris { margin-bottom: 0; }
 

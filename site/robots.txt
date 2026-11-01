@@ -1,0 +1,5 @@
+# seovisi.com.tr
+User-agent: *
+Allow: /
+
+Sitemap: https://seovisi.com.tr/sitemap.xml
