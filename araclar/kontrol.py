@@ -9,7 +9,9 @@ Kontrol edilenler:
   - her sayfada tek <h1>, atlanmayan başlık sırası, lang="tr"
   - benzersiz <title> ve meta açıklama, canonical, Open Graph ve Twitter etiketleri
   - görsellerde alt, width ve height; görsel dosyalarının varlığı
-  - site içi bağlantıların ve #çapaların karşılığı (_redirects dahil)
+  - site içi bağlantıların ve #çapaların karşılığı (vercel.json yönlendirmeleri dahil)
+  - vercel.json: temiz adresler, güvenlik başlıkları (CSP), HSTS'de includeSubDomains olmaması,
+    noindex başlığının yalnızca *.vercel.app deneme adreslerine uygulanması
   - dış betik / stil / yazı tipi çağrısı olmaması
   - JSON-LD bloklarının geçerli JSON olması
   - sitemap.xml ile arama motoruna açık sayfaların birbirini tutması
@@ -24,7 +26,9 @@ import sys
 from html.parser import HTMLParser
 from urllib.parse import urlsplit
 
-KOK = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "site"))
+DEPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+KOK = os.path.join(DEPO, "site")
+AYAR_DOSYASI = os.path.join(DEPO, "vercel.json")
 SITE = "https://seovisi.com.tr"
 
 
@@ -94,16 +98,44 @@ def sayfa_yolu(dosya):
     return "/" + ad[: -len(".html")]
 
 
-def yonlendirmeler():
-    k = {}
-    yol = os.path.join(KOK, "_redirects")
-    if os.path.exists(yol):
-        for satir in open(yol, encoding="utf-8"):
-            satir = satir.strip()
-            if satir and not satir.startswith("#"):
-                parca = satir.split()
-                k[parca[0]] = parca[1]
-    return k
+def vercel_ayarlari():
+    """vercel.json içeriği; dosya yoksa ya da bozuksa (None, hata metni)."""
+    try:
+        with open(AYAR_DOSYASI, encoding="utf-8") as f:
+            return json.load(f), None
+    except FileNotFoundError:
+        return None, "vercel.json bulunamadı (yayın ayarları bu dosyada)"
+    except json.JSONDecodeError as e:
+        return None, f"vercel.json geçerli JSON değil: {e}"
+
+
+def yonlendirmeler(ayar):
+    return {r["source"]: r["destination"] for r in (ayar or {}).get("redirects", [])}
+
+
+def vercel_kontrol(ayar, hatalar):
+    if ayar.get("outputDirectory") != "site":
+        hatalar.append('vercel.json: "outputDirectory" "site" olmalı (yayınlanan klasör)')
+    if ayar.get("cleanUrls") is not True:
+        hatalar.append('vercel.json: "cleanUrls": true olmalı (bağlantılar .html olmadan yazılıyor)')
+    if ayar.get("trailingSlash") is not False:
+        hatalar.append('vercel.json: "trailingSlash": false olmalı (adreslerin tek biçimi olsun)')
+    csp_var = False
+    for kural in ayar.get("headers", []):
+        kosullu = bool(kural.get("has") or kural.get("missing"))
+        for b in kural.get("headers", []):
+            ad, deger = b.get("key", ""), b.get("value", "")
+            if "includesubdomains" in deger.lower():
+                hatalar.append(f"vercel.json: {ad} başlığında includeSubDomains var; app.seovisi.com.tr'yi etkiler, kaldırın")
+            if ad.lower() == "content-security-policy" and kural.get("source") == "/(.*)" and not kosullu:
+                csp_var = True
+            if ad.lower() == "x-robots-tag":
+                hostlar = [k.get("value", "") for k in kural.get("has", []) if k.get("type") == "host"]
+                if not hostlar or not all("vercel" in h for h in hostlar):
+                    hatalar.append("vercel.json: X-Robots-Tag yalnızca *.vercel.app adreslerine (has: host) uygulanmalı; "
+                                   "yoksa gerçek site arama motorlarından silinir")
+    if not csp_var:
+        hatalar.append('vercel.json: bütün sayfalara ("/(.*)") Content-Security-Policy başlığı verilmeli')
 
 
 def hedef_dosya(yol):
@@ -131,7 +163,12 @@ def main():
                 p.feed(open(tam, encoding="utf-8").read())
                 sayfalar[tam] = p
 
-    yonler = yonlendirmeler()
+    ayar, ayar_hatasi = vercel_ayarlari()
+    if ayar_hatasi:
+        hatalar.append(ayar_hatasi)
+    else:
+        vercel_kontrol(ayar, hatalar)
+    yonler = yonlendirmeler(ayar)
     basliklar, aciklamalar = {}, {}
     indekslenebilir = set()
 
@@ -246,10 +283,10 @@ def main():
         if len(d) > 1:
             hatalar.append(f"aynı meta açıklama birden fazla sayfada: {d}")
 
-    # _redirects hedefleri
+    # vercel.json yönlendirme hedefleri
     for kaynak, hedef in yonler.items():
         if hedef.startswith("/") and not hedef_dosya(urlsplit(hedef).path):
-            hatalar.append(f"_redirects: {kaynak} -> {hedef} hedefi yok")
+            hatalar.append(f"vercel.json: {kaynak} -> {hedef} hedefi yok")
 
     # sitemap
     sm = open(os.path.join(KOK, "sitemap.xml"), encoding="utf-8").read()
@@ -271,6 +308,10 @@ def main():
                 for no, satir in enumerate(open(tam, encoding="utf-8"), 1):
                     if "YER-TUTUCU" in satir:
                         yer_tutucular.append(f"{os.path.relpath(tam, KOK)}:{no}: {satir.strip()[:110]}")
+
+    if yonler.get("/app-store", "").startswith("/"):
+        yer_tutucular.insert(0, f"vercel.json: /app-store hâlâ {yonler['/app-store']} sayfasına gidiyor "
+                                "(Ideasoft App Store adresi gelince destination değişecek)")
 
     print(f"Kontrol edilen sayfa: {len(sayfalar)}  (arama motorlarına açık: {len(indekslenebilir)})")
     print(f"\nYer tutucular ({len(yer_tutucular)}):")

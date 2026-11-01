@@ -7,7 +7,8 @@ Site düz HTML ve CSS'ten oluşur; derleme adımı yoktur. Yayınlanan dosyalar 
 
 | Dosya | Ne işe yarar? |
 |---|---|
-| [`KURULUM.md`](KURULUM.md) | Siteyi yayına alma ve alan adı (DNS) adımları |
+| [`KURULUM.md`](KURULUM.md) | Siteyi Vercel'de yayına alma ve alan adı (DNS) adımları |
+| [`vercel.json`](vercel.json) | Vercel yayın ayarları: temiz adresler, App Store yönlendirmesi, güvenlik başlıkları |
 | [`YAPILACAKLAR.md`](YAPILACAKLAR.md) | Henüz eklenmemiş bilgiler (yer tutucular) ve kontrol edilecek kararlar |
 | [`URUN-BILGISI.md`](URUN-BILGISI.md) | Sitedeki içeriğin tek kaynağı |
 | [`CLAUDE.md`](CLAUDE.md) | Siteyi düzenleyen yapay zekâ için kurallar |

@@ -28,21 +28,27 @@ sonuçlar, hukuki metinler) **`YAPILACAKLAR.md`** listesindedir; doldurulan madd
 - Fiyat yazılmaz (kesinleşmedi): "Fiyatlar ve satın alma Ideasoft App Store'da." Sitede ödeme alınmaz.
 - Panel ekran görüntüleri gelene kadar açıkça işaretli yer tutucu kullanılır. Gerçek görüntülerde
   mağaza adı, ürün adları ve stok kodları bulanıklaştırılır (`araclar/vitrin/`).
-- Çerez, analiz aracı, dış betik yok. Eklenirse önce çerez bildirimi ve politika güncellenir.
+- Çerez, analiz aracı, dış betik yok (Vercel Web Analytics ve Speed Insights dahil). Eklenirse önce
+  çerez bildirimi ve politika güncellenir.
 
 ## Teknik çerçeve
 
 - Düz HTML + tek CSS + çok az saf JavaScript. **Derleme adımı, npm paketi, çerçeve yok.**
-  `site/` klasörü olduğu gibi yayınlanır (Cloudflare Pages, çıktı klasörü `site`).
+  `site/` klasörü olduğu gibi yayınlanır (**Vercel**). Yayın ayarlarının hepsi depo kökündeki
+  `vercel.json`'da: çıktı klasörü `site`, temiz adresler (`cleanUrls`), sondaki `/` yok
+  (`trailingSlash: false`), yönlendirmeler ve HTTP başlıkları. Özel 404 sayfası `site/404.html`.
 - Dışarıya istek yok: yazı tipi (Plus Jakarta Sans) `site/fontlar/` içinde. Google Fonts, CDN,
   dış betik kullanma (KVKK).
-- `site/_headers` sıkı bir CSP içerir: **satır içi `<style>`, `style="..."` ve satır içi betik
+- `vercel.json` sıkı bir CSP içerir: **satır içi `<style>`, `style="..."` ve satır içi betik
   kullanma.** JSON-LD (`application/ld+json`) serbest.
 - Temiz adresler: bağlantıları `.html` olmadan yaz (`/ozellikler`, `/paketler#...`).
 - Üst bölüm (header) ve alt bölüm (footer) her sayfada tekrar eder; birini değiştirirsen hepsini
   değiştir. Etkin menü öğesi `aria-current="page"` ile işaretlenir.
 - Bütün "Ideasoft App Store'da incele" bağlantıları `/app-store` adresine gider; gerçek adres
-  yalnızca `site/_redirects` dosyasında değişir.
+  yalnızca `vercel.json` içindeki `redirects` bölümünde değişir.
+- HSTS'yi Vercel kendisi ekler (yalnızca `seovisi.com.tr`). `vercel.json`'a `includeSubDomains`
+  eklenmez (`app` alt alanını etkiler). `X-Robots-Tag: noindex` yalnızca `*.vercel.app` deneme
+  adreslerine (`has: host` koşuluyla) verilir. `kontrol.py` ikisini de denetler.
 - Paket bilgisi (ad, ürün sınırı, özellik, fiyat) yalnızca `site/paketler.html` içindeki
   "PAKET BİLGİLERİ" bloğunda yazar; başka sayfada tekrar etme.
 - Yer tutucuların yanında `YER-TUTUCU` yorumu bulunur.
@@ -97,16 +103,16 @@ site/                 yayınlanan klasör
   marka/              logo, işaret, favicon, uygulama ikonları
   gorseller/ekran/    panel ekran görüntüleri (vitrin görünümünde; gelmeyenler yer tutucu)
   gorseller/paylasim/ sayfa başına paylaşım (Open Graph) görselleri, 1200×630
-  _headers, _redirects, robots.txt, sitemap.xml, site.webmanifest, favicon.ico
+  robots.txt, sitemap.xml, site.webmanifest, favicon.ico, 404.html
 araclar/              yayına girmez
-  onizleme.py         yerel önizleme (Cloudflare Pages'i taklit eder): python3 araclar/onizleme.py
+  onizleme.py         yerel önizleme (vercel.json'u okuyup Vercel'i taklit eder): python3 araclar/onizleme.py
   kontrol.py          site kontrolü: python3 araclar/kontrol.py
   vitrin/             ekran görüntüsünü bulanıklaştırıp vitrin görseline çevirir (BENIOKU.md);
                       bulanık kaynaklar kaynak/, ayarlar sitedeki-ekranlar.json
 URUN-BILGISI.md       içeriğin tek kaynağı
 YAPILACAKLAR.md       yer tutucular ve sahibin kontrol edeceği kararlar
 KURULUM.md            yayın ve DNS adımları
-wrangler.jsonc        yalnızca Cloudflare Workers ile yayınlanırsa kullanılır
+vercel.json           Vercel yayın ayarları (temiz adresler, App Store yönlendirmesi, HTTP başlıkları)
 ```
 
 ## Çalışma şekli
@@ -114,6 +120,6 @@ wrangler.jsonc        yalnızca Cloudflare Workers ile yayınlanırsa kullanıl�
 - Her değişiklikten sonra `python3 araclar/kontrol.py` çalıştır; hata kalmasın. Görünümü
   `python3 araclar/onizleme.py` ile masaüstü ve mobil boyutta kontrol et.
 - Site sahibi commit'lerin **sorulmadan** yapılmasını istiyor: anlamlı her adımdan sonra Türkçe
-  mesajla commit'le ve `main` dalına gönder. `main` Cloudflare'e bağlanınca her gönderim siteyi
+  mesajla commit'le ve `main` dalına gönder. `main` Vercel'e bağlanınca her gönderim siteyi
   yayına alır.
 - `app.seovisi.com.tr` ile ilgili DNS kaydına hiçbir talimatta dokunulmaz.

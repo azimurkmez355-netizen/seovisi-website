@@ -8,7 +8,7 @@ güncellenir ve bu listeden düşer. (Teknik not: kodda her yer tutucunun yanın
 
 | # | Ne? | Nerede görünüyor? | Hangi dosyada değişecek? | Durum |
 |---|---|---|---|---|
-| 1 | **Ideasoft App Store adresi** | Bütün "Ideasoft App Store'da incele" düğmeleri | Yalnızca `site/_redirects` (tek satır) | Bekliyor. Düğmeler şimdilik "sayfa hazırlanıyor" bilgisine gidiyor |
+| 1 | **Ideasoft App Store adresi** | Bütün "Ideasoft App Store'da incele" düğmeleri | Yalnızca `vercel.json` (`redirects` bölümünde tek satır) | Bekliyor. Düğmeler şimdilik "sayfa hazırlanıyor" bilgisine gidiyor |
 | 2 | **E-posta adresi** | İletişim sayfası, hukuki sayfalar, yapısal veri | `site/iletisim.html` | **Tamam:** azimurkmez355@gmail.com |
 | 3 | **WhatsApp / telefon** | İletişim sayfası, hukuki sayfalar, yapısal veri | `site/iletisim.html` | **Tamam:** +90 535 553 40 92 (WhatsApp düğmesi de bu numaraya gidiyor; numarada WhatsApp açık) |
 | 4 | **Şirket bilgileri** (unvan, adres, vergi dairesi ve no, MERSİS no) | 3 hukuki sayfa | `site/kullanim-kosullari.html`, `site/gizlilik-ve-kvkk.html`, `site/cerez-politikasi.html` | Bekliyor. E-posta ve telefon eklendi |
@@ -70,7 +70,9 @@ sayfa `site/sitemap.xml` listesine eklenir. Claude bunları birlikte yapar.
 
 ## 2. Yayından önce
 
-- [ ] `KURULUM.md`'deki adımlar (Cloudflare, DNS, www yönlendirmesi, Search Console)
+- [ ] `KURULUM.md`'deki adımlar (Vercel, DNS, www yönlendirmesi, Search Console)
+- [ ] Vercel planı: şirket sitesi ticari kullanım sayıldığı için **Pro** plan gerekir (ücretsiz
+      Hobby planı yalnızca kişisel, ticari olmayan kullanım için)
 - [ ] App Store adresi (1) gelmeden yayına çıkılacaksa düğmeler "sayfa hazırlanıyor" bilgisine gider; bu bilinçli bir geçici durumdur
 - [ ] Örnek sonuçlar (7) dolduruldu ya da gizlendi
 - [ ] Hukuki metinler (4, 5) eklendi ya da taslak hâliyle yayına çıkılması kabul edildi
@@ -112,8 +114,8 @@ Hukuki metinleri yazacak kişiye iletebileceğiniz teknik bilgiler:
 
 - Site şu anda **çerez, analiz aracı, dış betik ve form içermiyor.** Yazı tipi de sitenin kendi
   sunucusundan geliyor (Google Fonts kullanılmıyor).
-- Site Cloudflare üzerinde yayınlanacak; barındırma hizmetleri ziyaretçi IP adreslerini teknik
-  kayıtlarında (log) tutabilir.
+- Site Vercel (ABD merkezli barındırma hizmeti) üzerinde yayınlanacak; barındırma hizmetleri
+  ziyaretçi IP adreslerini teknik kayıtlarında (log) tutabilir.
 - Sitede ödeme alınmıyor; satın alma Ideasoft App Store üzerinden yapılıyor.
 - Uygulama tarafı (`app.seovisi.com.tr`): mağaza erişim anahtarları şifreli saklanıyor, her mağaza
   yalnızca kendi verisini görüyor, uygulama kaldırılınca mağazanın verileri 30 gün sonra tamamen

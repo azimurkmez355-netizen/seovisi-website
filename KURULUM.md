@@ -1,142 +1,115 @@
-# Yayın ve alan adı kurulumu
+# Yayın ve alan adı kurulumu (Vercel)
 
-Bu rehber `seovisi.com.tr` sitesini internete açmak için adım adım ne yapacağınızı anlatır.
-Teknik bilgi gerekmez; sırayla ilerleyin. Bir adımda takılırsanız ekran görüntüsüyle Claude'a sorun.
+Bu rehber `seovisi.com.tr` sitesini Vercel'de internete açmak için adım adım ne yapacağınızı
+anlatır. Teknik bilgi gerekmez; sırayla ilerleyin. Bir adımda takılırsanız ekran görüntüsüyle
+Claude'a sorun. (Vercel menülerinin adları zamanla değişebilir; benzer adlı düğmeyi arayın.)
 
 > **Önemli:** `app.seovisi.com.tr` kaydı başka bir sunucuyu (uygulama panelini) gösteriyor.
 > Bu rehberdeki hiçbir adımda **o kayda dokunulmaz**: değeri değiştirilmez, silinmez, taşınmaz.
 > Değişen yalnızca `seovisi.com.tr` ve `www.seovisi.com.tr` olur.
 
-> **Yalnızca test etmek istiyorsanız:** 2. ve 3. adımlar yeterlidir. Site birkaç dakika içinde
-> `seovisi-website.pages.dev` gibi bir deneme adresinde açılır; telefondan ve bilgisayardan
-> deneyebilirsiniz. Alan adına (DNS) dokunmanız gerekmez. Her güncellemede bu adres de kendiliğinden
-> yenilenir.
+> **Plan seçimi:** Vercel'in ücretsiz planı (**Hobby**) yalnızca kişisel ve ticari olmayan kullanım
+> içindir. Bir ürünü tanıtan şirket sitesi ticari kullanım sayılır; bu yüzden Vercel'de **Pro** plan
+> gerekir (aylık ücretli, güncel fiyat: <https://vercel.com/pricing>). Ücretsiz ve ticari kullanıma
+> açık bir yer isterseniz site Cloudflare Pages'te de çalışır; Claude'a söylemeniz yeterli.
+
+> **Yalnızca test etmek istiyorsanız:** 1. ve 2. adımlar yeterlidir. Site birkaç dakika içinde
+> `seovisi-website.vercel.app` gibi bir deneme adresinde açılır. Bu adres arama motorlarına
+> kapalıdır. Alan adına (DNS) dokunmanız gerekmez.
+
+Sitenin bütün Vercel ayarları depodaki **`vercel.json`** dosyasındadır: yayınlanan klasör (`site`),
+temiz adresler (`/ozellikler`), "App Store'da incele" yönlendirmesi ve güvenlik başlıkları.
+Vercel panelinde bunlar için ayrıca bir şey yapmanız gerekmez.
 
 ---
 
-## 1. Nerede yayınlayalım? (karşılaştırma)
+## 1. Vercel hesabı açın
 
-Site düz HTML dosyalarından oluşuyor; bu yüzden aşağıdakilerin hepsinde çalışır.
+1. <https://vercel.com/signup> adresine girin ve **Continue with GitHub** (GitHub ile devam et)
+   seçeneğiyle, siteyi tutan GitHub hesabınızla giriş yapın.
+2. Hesap türü sorulursa **Pro**'yu seçin (yukarıdaki "Plan seçimi" notuna bakın).
 
-| | **Cloudflare Pages** (önerilen) | Netlify | GitHub Pages |
-|---|---|---|---|
-| Ücret | Ücretsiz | Ücretsiz plan var | Ücretsiz |
-| Trafik sınırı | Statik site için pratikte sınırsız | Aylık kredi sınırı var; dolarsa site ay sonuna kadar durabilir | Aylık 100 GB civarı esnek sınır |
-| Her güncellemede | Otomatik yayın, sınır sorunu yok | Her yayın kredi harcar | Otomatik yayın (ek ayar gerekir) |
-| Türkiye'ye hız | İstanbul'da sunucusu var | İyi | İyi |
-| `seovisi.com.tr` (www'siz) adresi | Alan adının DNS yönetimi Cloudflare'e taşınır (ücretsiz) | DNS'te iki kayıt değişir | DNS'te birkaç kayıt değişir |
-| "App Store'da incele" tek yerden değişir mi? | Evet (`site/_redirects`) | Evet | Hayır, her sayfada ayrı değişir |
-| Güvenlik başlıkları (`site/_headers`) | Evet | Evet | Hayır |
-| Ticari ürün sitesi | Uygun | Uygun | GitHub'ın kuralları ticari ürün sitelerini pek desteklemiyor |
+## 2. Siteyi GitHub'dan içe aktarın
 
-**Önerim: Cloudflare Pages.** Ücretsiz, trafik sınırı derdi yok, Türkiye'de hızlı ve sitenin bütün
-özellikleri (tek yerden App Store adresi, güvenlik başlıkları, temiz adresler, özel 404 sayfası)
-orada hiç ayar gerektirmeden çalışıyor. Tek ek iş: alan adının DNS yönetimini Cloudflare'e taşımak.
-Bu ücretsizdir; aşağıda `app` kaydı bozulmadan nasıl yapılacağı adım adım anlatılıyor.
+1. Vercel panelinde **Add New…** (Yeni ekle) → **Project** (Proje).
+2. **Import Git Repository** listesinde **seovisi-website**'ı bulun → **Import**.
+   GitHub izin isterse `azimurkmez355-netizen/seovisi-website` deposuna erişim verin.
+3. Açılan ayar ekranında:
+   - **Project Name:** `seovisi-website`
+   - **Framework Preset:** `Other`
+   - **Root Directory:** değiştirmeyin (`./`)
+   - **Build and Output Settings** ve **Environment Variables:** dokunmayın, boş kalsın.
+4. **Deploy**'a basın. Bir iki dakika içinde "Congratulations" ekranı gelir. Site
+   `https://seovisi-website.vercel.app` gibi bir deneme adresinde açılır.
 
----
+**Kontrol:** Deneme adresini telefondan ve bilgisayardan açın; sayfalar, menü ve görseller görünüyor
+olmalı. `/olmayan-bir-sayfa` yazınca sitenin kendi 404 sayfası gelmeli.
 
-## 2. Cloudflare hesabı açın
+### Kapalı kalması gerekenler
 
-1. <https://dash.cloudflare.com/sign-up> adresinden ücretsiz hesap açın ve e-postanızı doğrulayın.
+Sitenin kuralı: çerez, ölçüm aracı ve dış betik yok. Bu yüzden Vercel'de:
 
-## 3. Siteyi GitHub'dan bağlayın
+- **Analytics** (Web Analytics) ve **Speed Insights** bölümlerinde **Enable** (aç) demeyin. İkisi de
+  siteye ölçüm betiği ekler; açılırsa önce gizlilik ve çerez metinleri güncellenmelidir.
+- İsteğe bağlı: proje ayarlarındaki **Vercel Toolbar** seçeneğini kapatabilirsiniz. Açık kalırsa
+  yalnızca deneme adreslerinde sizin gördüğünüz bir araç çubuğu çıkar; asıl siteyi etkilemez.
 
-1. Cloudflare panelinde soldaki menüden **Workers & Pages**'e girin.
-2. **Create** (Oluştur) düğmesine basın ve **Pages** sekmesini seçin.
-3. **Connect to Git** (Git'e bağla) → **GitHub**'ı seçin. GitHub izin isterse
-   `azimurkmez355-netizen/seovisi-website` deposuna erişim verin.
-4. Depo olarak **seovisi-website**'ı seçin ve **Begin setup**'a basın.
-5. Ayarları şöyle girin:
-   - **Project name:** `seovisi-website`
-   - **Production branch:** `main`
-   - **Framework preset:** `None`
-   - **Build command:** boş bırakın
-   - **Build output directory:** `site`
-6. **Save and Deploy**'a basın. Bir iki dakika içinde site
-   `https://seovisi-website.pages.dev` gibi bir deneme adresinde açılır.
+## 3. Alan adını Vercel'e ekleyin
 
-> **Ekranda "Pages" seçeneği yoksa:** Cloudflare menüleri zamanla değişebiliyor. Yalnızca
-> **Workers** görüyorsanız **Import a repository** (depo içe aktar) ile aynı depoyu seçin ve
-> ayarlara dokunmadan devam edin. Depodaki `wrangler.jsonc` dosyası, yayınlanacak klasörün `site`
-> olduğunu Cloudflare'e zaten söylüyor. Sonraki adımlar aynıdır; yalnızca "Custom domains" menüsü
-> Worker'ın **Settings → Domains & Routes** bölümünde olur.
+1. Projeye girin → **Domains** bölümü (sol menüde ya da **Settings → Domains**) → **Add Domain**.
+2. `seovisi.com.tr` yazın ve ekleyin.
+3. Vercel `www` için seçenek sunarsa **`www.seovisi.com.tr`'yi `seovisi.com.tr`'ye yönlendiren**
+   seçeneği seçin. (Vercel genellikle tersini, yani www'yu asıl adres yapmayı önerir. Bu sitenin asıl
+   adresi www'suz `seovisi.com.tr`; arama motorlarına da öyle bildirildi.)
+4. Bu seçenek çıkmazsa `www.seovisi.com.tr`'yi ayrıca ekleyin. Sonra listede onun yanındaki **Edit**
+   (Düzenle) → **Redirect to** (Yönlendir) → `seovisi.com.tr` seçin. Kalıcı yönlendirme
+   (**308** ya da **301**) seçili olsun → **Save**.
+5. İki adın yanında **Invalid Configuration** (geçersiz yapılandırma) yazması normaldir: DNS kayıtları
+   henüz eklenmedi. Vercel her biri için hangi kaydın gerektiğini gösterir:
+   - `seovisi.com.tr` için bir **A** kaydı (değer bir IP adresi, çoğu projede `76.76.21.21`),
+   - `www.seovisi.com.tr` için bir **CNAME** kaydı (değer bu projeye özel, `…vercel-dns…com` gibi).
 
-**Kontrol:** Deneme adresini açın; sayfalar, menü ve görseller görünüyor olmalı.
-(Deneme adresi arama motorlarına kapalıdır, merak etmeyin.)
+   **Değerleri Vercel'in ekranından kopyalayın**; bu rehberdeki örneklere değil, oradakine güvenin.
 
-## 4. Alan adının DNS yönetimini Cloudflare'e taşıyın
+> **Yapmayın:** Vercel "nameserver'ları Vercel'e taşı" (Vercel DNS) seçeneği de sunabilir. Bunu
+> **seçmeyin.** Taşıma, `app` kaydını ve e-posta kayıtlarını yeniden kurmayı gerektirir; bize yalnızca
+> iki kayıt eklemek yetiyor.
 
-Bu bölümde `app.seovisi.com.tr` kaydını **aynen koruyacağız.**
+## 4. DNS'e iki kayıt ekleyin
 
-### 4a. Önce mevcut kayıtların fotoğrafını çekin
+Bu bölümde `app.seovisi.com.tr` kaydına **dokunulmaz.** Yalnızca kök (`@`) ve `www` kayıtları değişir.
 
-1. Alan adını aldığınız firmanın paneline girin (ya da DNS'i şu an kim yönetiyorsa onunkine).
-2. **DNS kayıtları** sayfasını açın ve **bütün kayıtların ekran görüntüsünü alın.** Özellikle:
-   - `app` kaydı: türünü (A ya da CNAME) ve değerini not edin.
-   - `MX` kayıtları: `@seovisi.com.tr` uzantılı e-posta kullanıyorsanız bunlar e-postanızı taşır.
-   - `TXT` kayıtları: e-posta doğrulama (SPF, DKIM) ve Google doğrulaması gibi kayıtlar.
-3. Firmanın panelinde **DNSSEC** açıksa şimdilik **kapatın** (açık kalırsa taşıma sırasında site ve
-   uygulama paneli erişilemez hâle gelebilir). İsterseniz taşıma bittikten sonra Cloudflare'de
-   yeniden açabilirsiniz.
+1. Alan adının DNS kayıtlarını yönettiğiniz panele girin: alan adını aldığınız firmanın paneli ya
+   da DNS'i başka bir hizmette (ör. Cloudflare) tutuyorsanız orası.
+2. Değişiklikten önce **bütün kayıtların ekran görüntüsünü alın.** Bir sorun olursa geri dönmek için
+   gerekir. Özellikle `app` kaydının türünü ve değerini not edin.
+3. **Kök (`@`, ya da adı boş olan) kayıt:**
+   - Kök için zaten bir **A** kaydı varsa değerini Vercel'in verdiği IP ile değiştirin; yoksa yeni
+     ekleyin: **Tür** `A` · **Ad** `@` · **Değer** Vercel'in gösterdiği IP.
+   - Kök için başka **A** kayıtları da varsa onları silin; Vercel'inki tek kalmalı.
+   - Kök için bir **AAAA** kaydı varsa silin. Vercel bunu desteklemez ve doğrulamayı engeller.
+4. **`www` kaydı:** **Tür** `CNAME` · **Ad** `www` · **Değer** Vercel'in gösterdiği adres.
+   `www` için eski bir kayıt varsa onu bununla değiştirin.
+5. **Başka hiçbir kayda dokunmayın:** `app`, `MX` (e-posta) ve `TXT` kayıtları aynen kalır.
+6. DNS'iniz **Cloudflare**'deyse bu iki kayıtta bulut **gri (DNS only)** olmalı. Turuncu kalırsa
+   Vercel güvenlik sertifikası (HTTPS) alamaz.
+7. Kaydedin. Birkaç dakika ile birkaç saat içinde (`.com.tr`'de biraz uzun sürebilir) Vercel'deki
+   iki ad **Valid Configuration** olur ve HTTPS (kilit simgesi) kendiliğinden gelir.
 
-### 4b. Alan adını Cloudflare'e ekleyin
+**Kontrol:** `https://app.seovisi.com.tr` uygulama paneli eskisi gibi açılıyor olmalı.
 
-1. Cloudflare panelinde **Add a domain** (alan adı ekle) → `seovisi.com.tr` yazın.
-2. **Free** (ücretsiz) planı seçin.
-3. Cloudflare mevcut kayıtları tarayıp bir liste gösterir. Bu listeyi 4a'daki ekran görüntünüzle
-   **satır satır karşılaştırın.** Eksik olan varsa **Add record** ile aynen ekleyin.
-4. **`app` kaydı için:**
-   - Türü ve değeri ekran görüntünüzdekiyle **birebir aynı** olmalı. Değiştirmeyin, silmeyin.
-   - **Proxy status** sütunundaki bulutu **gri (DNS only)** yapın. Böylece uygulama paneline giden
-     trafik bugün olduğu gibi doğrudan kendi sunucusuna gider; Cloudflare araya girmez.
-5. `MX` ve `TXT` kayıtları da aynen kalmalı. Bunlarda da bulut gri olmalıdır.
-6. `seovisi.com.tr` (kök, `@`) ya da `www` için eski bir kayıt varsa şimdilik dokunmayın;
-   5. adımda Cloudflare bunları siteye yönlendirmeyi kendisi önerecek.
+## 5. HTTPS ve yönlendirmeler
 
-### 4c. Nameserver'ları değiştirin
+Bunları Vercel kendisi yapar; sizin bir şey yapmanız gerekmez:
 
-1. Cloudflare size iki adres verir (örnek: `ada.ns.cloudflare.com`, `bob.ns.cloudflare.com`).
-2. Alan adını aldığınız firmanın panelinde **Nameserver / DNS sunucuları** ayarına girin ve mevcut
-   adresleri Cloudflare'in verdiği iki adresle değiştirin.
-3. `.com.tr` alan adlarında bu değişiklik birkaç saat sürebilir. Cloudflare değişikliği görünce
-   size e-posta atar ve alan adı **Active** (etkin) olur.
+- `http://` ile gelenler `https://` adresine geçer.
+- `www` ile gelenler `seovisi.com.tr`'ye geçer (3. adımdaki ayar).
+- HSTS güvenlik ayarı yalnızca `seovisi.com.tr` için geçerlidir; `app.seovisi.com.tr`'yi etkilemez.
 
-**Kontrol:** Alan adı etkin olunca `https://app.seovisi.com.tr` adresini açın. Uygulama paneli eskisi
-gibi açılıyor olmalı. Açılmıyorsa Cloudflare'deki `app` kaydını ekran görüntünüzle tekrar
-karşılaştırın (tür, değer, gri bulut).
+> **Yapmayın:** `vercel.json` dosyasına `includeSubDomains` içeren bir HSTS ayarı eklemeyin; bu
+> `app.seovisi.com.tr`'yi de etkiler. (`python3 araclar/kontrol.py` bunu hata olarak yakalar.)
 
-## 5. Siteyi alan adına bağlayın
-
-1. **Workers & Pages** → **seovisi-website** projesi → **Custom domains** → **Set up a custom domain**.
-2. `seovisi.com.tr` yazın → **Continue** → **Activate domain**. Cloudflare gerekli kaydı kendisi ekler.
-3. Aynı adımları `www.seovisi.com.tr` için tekrarlayın.
-4. Birkaç dakika içinde ikisi de **Active** olur ve HTTPS (kilit simgesi) kendiliğinden gelir.
-
-## 6. www'yu www'suz adrese yönlendirin
-
-Sitenin asıl adresi `https://seovisi.com.tr`. `www` ile gelenler oraya yönlendirilmeli.
-
-1. Cloudflare'de `seovisi.com.tr` alan adına girin → **Rules** (Kurallar) → **Redirect Rules**
-   → **Create rule** (kural oluştur).
-2. Hazır şablon varsa **Redirect from WWW to root** (www'dan köke yönlendir) şablonunu seçin ve kaydedin.
-3. Şablon yoksa elle girin:
-   - **Rule name:** `www'dan köke`
-   - **If incoming requests match:** Custom filter expression → **Hostname** `equals`
-     `www.seovisi.com.tr`
-   - **Then:** URL redirect → **Type:** Dynamic → **Expression:**
-     `concat("https://seovisi.com.tr", http.request.uri.path)`
-   - **Status code:** `301` · **Preserve query string:** işaretli
-4. **Deploy** (kaydet).
-
-Ek olarak **SSL/TLS → Edge Certificates → Always Use HTTPS** seçeneğini açın. Bu ayar yalnızca
-Cloudflare'in araya girdiği (turuncu bulutlu) adresleri etkiler; gri bulutlu `app` kaydı etkilenmez.
-
-> **Yapmayın:** Cloudflare'de HSTS ayarını "Include subdomains" (alt alan adlarını dahil et) ile
-> açmayın. Bu, `app.seovisi.com.tr`'yi de etkiler. Sitenin kendi HSTS ayarı zaten yalnızca
-> `seovisi.com.tr` için geçerli olacak şekilde hazırlandı.
-
-## 7. Son kontroller
+## 6. Son kontroller
 
 Hepsini telefondan ve bilgisayardan deneyin:
 
@@ -144,15 +117,16 @@ Hepsini telefondan ve bilgisayardan deneyin:
 - [ ] `https://www.seovisi.com.tr` → `https://seovisi.com.tr` adresine geçiyor.
 - [ ] `http://seovisi.com.tr` (s'siz) → `https://` adresine geçiyor.
 - [ ] `https://seovisi.com.tr/ozellikler` açılıyor; `.../ozellikler.html` yazınca `/ozellikler`'e geçiyor.
-- [ ] `https://seovisi.com.tr/olmayan-bir-sayfa` özel 404 sayfasını gösteriyor.
+- [ ] `https://seovisi.com.tr/olmayan-bir-sayfa` sitenin kendi 404 sayfasını gösteriyor.
+- [ ] "Ideasoft App Store'da incele" düğmesi doğru yere gidiyor (adres gelene kadar "hazırlanıyor" sayfası).
 - [ ] **`https://app.seovisi.com.tr` uygulama paneli eskisi gibi çalışıyor.**
 - [ ] `@seovisi.com.tr` e-postası kullanıyorsanız e-posta gönderip alabiliyorsunuz.
 
-## 8. Google Search Console (önerilir)
+## 7. Google Search Console (önerilir)
 
 1. <https://search.google.com/search-console> → **Mülk ekle** → **Alan adı** → `seovisi.com.tr`.
-2. Google bir `TXT` kaydı verir. Cloudflare → `seovisi.com.tr` → **DNS** → **Add record** →
-   Type `TXT`, Name `@`, Content: Google'ın verdiği metin → kaydedin → Google'da **Doğrula**.
+2. Google bir `TXT` kaydı verir. 4. adımdaki DNS panelinde **yeni bir kayıt** ekleyin:
+   **Tür** `TXT` · **Ad** `@` · **Değer** Google'ın verdiği metin → kaydedin → Google'da **Doğrula**.
    (Bu yeni bir kayıttır; `app` kaydına dokunmaz.)
 3. Doğrulandıktan sonra soldan **Site haritaları** → `sitemap.xml` yazıp gönderin.
 
@@ -161,17 +135,33 @@ aktarma seçeneği var).
 
 ---
 
+## Ideasoft App Store adresi gelince
+
+Sitedeki bütün "Ideasoft App Store'da incele" düğmeleri `/app-store` adresine gider. Bu adresin
+nereye yönleneceği yalnızca `vercel.json` dosyasındaki şu satırda yazar:
+
+```json
+"destination": "/app-store-yakinda",
+```
+
+Adres belli olunca bu satır `"destination": "https://…(App Store'daki seovisi sayfası)…",` olur.
+Adresi Claude'a vermeniz yeterli.
+
 ## Site nasıl güncellenir?
 
-GitHub'daki `main` dalına her yeni değişiklik geldiğinde Cloudflare siteyi birkaç dakika içinde
+GitHub'daki `main` dalına her yeni değişiklik geldiğinde Vercel siteyi birkaç dakika içinde
 kendiliğinden yeniden yayınlar. Sizin bir şey yapmanız gerekmez. Bir güncelleme sorun çıkarırsa
-Cloudflare'de **Deployments** sekmesinden önceki sürüme tek tıkla geri dönebilirsiniz
-(**Rollback**).
+Vercel'de **Deployments** sekmesinde önceki sürümün menüsünden (**⋯**) **Instant Rollback** ile
+önceki hâline dönebilirsiniz.
 
 ## Bir şeyler ters giderse
 
-- **Site açılmıyor ama `app` çalışıyor:** 5. adımdaki "Custom domains" durumunu kontrol edin.
-- **`app.seovisi.com.tr` açılmıyor:** Cloudflare → DNS'te `app` kaydının türünü, değerini ve gri
-  bulutu ekran görüntünüzle karşılaştırın. Çözemezseniz alan adı firmanızın panelinde nameserver'ları
-  eski adreslere geri yazarak her şeyi önceki hâline döndürebilirsiniz (birkaç saat sürebilir).
+- **Vercel'de ad "Invalid Configuration" olarak kalıyor:** A ve CNAME değerlerini Vercel'in
+  ekranındakiyle karşılaştırın. Kök için başka A ya da AAAA kaydı kalmadığından emin olun. DNS
+  Cloudflare'deyse bulut gri olmalı. Alan adında `CAA` kaydı varsa `letsencrypt.org` için izin
+  gerekir. `.com.tr` alan adlarında değişikliğin görünmesi birkaç saat sürebilir.
+- **`app.seovisi.com.tr` açılmıyor:** Bu rehber `app` kaydına dokunmaz. DNS panelinde `app`
+  kaydını 4. adımdaki ekran görüntünüzle karşılaştırın (tür ve değer aynı mı?).
 - **E-posta gelmiyor:** `MX` ve `TXT` kayıtlarını ekran görüntünüzle karşılaştırın.
+- **Site eski hâliyle görünüyor:** Vercel'de **Deployments** sekmesinde son yayının **Ready**
+  (hazır) olduğunu kontrol edin; tarayıcıda sayfayı yenileyin.

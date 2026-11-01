@@ -2,11 +2,16 @@
 """
 seovisi.com.tr — yerel önizleme sunucusu (yalnızca geliştirme için, yayına girmez).
 
-Cloudflare Pages'in davranışını taklit eder:
-  - temiz adresler: /ozellikler -> site/ozellikler.html, /ozellikler.html -> /ozellikler (308)
-  - site/_redirects ve site/_headers dosyalarını okur
+Vercel'in davranışını taklit eder; ayarları depo kökündeki vercel.json dosyasından okur:
+  - cleanUrls: /ozellikler -> site/ozellikler.html, /ozellikler.html -> /ozellikler (308)
+  - trailingSlash: false -> /ozellikler/ -> /ozellikler (308)
+  - redirects ve headers bölümleri (has: host koşulu dahil)
   - bulunamayan adreslerde site/404.html'i 404 koduyla gösterir
   - metin dosyalarını sıkıştırır (gzip)
+
+Not: vercel.json'daki "source" desenleri burada düzenli ifade olarak okunur. Bu sitedeki
+biçimler ("/(.*)", "/fontlar/(.*)", "/app-store") için Vercel ile aynı sonucu verir; ":ad" gibi
+adlandırılmış parametreler desteklenmez.
 
 Kullanım:
   python3 araclar/onizleme.py            # http://localhost:8080
@@ -16,14 +21,27 @@ Yalnızca Python'un standart kütüphanesini kullanır; kurulum gerekmez.
 """
 import gzip
 import http.server
+import json
 import mimetypes
 import os
 import re
 import sys
 from urllib.parse import urlsplit, unquote
 
-KOK = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "site")
-KOK = os.path.abspath(KOK)
+DEPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+AYAR_DOSYASI = os.path.join(DEPO, "vercel.json")
+
+
+def ayarlar():
+    """vercel.json her istekte yeniden okunur; değişiklik için sunucuyu yeniden başlatmak gerekmez."""
+    try:
+        with open(AYAR_DOSYASI, encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
+
+
+KOK = os.path.join(DEPO, ayarlar().get("outputDirectory", "site"))
 
 mimetypes.add_type("application/manifest+json", ".webmanifest")
 mimetypes.add_type("font/woff2", ".woff2")
@@ -34,46 +52,19 @@ SIKISTIR = ("text/", "application/javascript", "application/json", "application/
             "application/xml", "image/svg+xml")
 
 
-def yonlendirmeleri_oku():
-    kurallar = []
-    yol = os.path.join(KOK, "_redirects")
-    if not os.path.exists(yol):
-        return kurallar
-    for satir in open(yol, encoding="utf-8"):
-        satir = satir.strip()
-        if not satir or satir.startswith("#"):
-            continue
-        parca = satir.split()
-        kaynak, hedef = parca[0], parca[1]
-        kod = int(parca[2]) if len(parca) > 2 else 302
-        kurallar.append((kaynak, hedef, kod))
-    return kurallar
+def kosullar_tutuyor(kural, istek_basliklari):
+    for k in kural.get("has", []):
+        if k.get("type") == "host":
+            host = (istek_basliklari.get("Host") or "").split(":")[0]
+            if not re.fullmatch(k.get("value", ".*"), host):
+                return False
+        else:
+            return False  # başka koşul türleri yerelde değerlendirilmez
+    return True
 
 
-def basliklari_oku():
-    kurallar = []  # (desen, [(ad, deger)])
-    yol = os.path.join(KOK, "_headers")
-    if not os.path.exists(yol):
-        return kurallar
-    gecerli = None
-    for satir in open(yol, encoding="utf-8"):
-        if not satir.strip() or satir.strip().startswith("#"):
-            continue
-        if not satir.startswith((" ", "\t")):
-            desen = satir.strip()
-            gecerli = (desen, [])
-            kurallar.append(gecerli)
-        elif gecerli is not None:
-            ad, _, deger = satir.strip().partition(":")
-            gecerli[1].append((ad.strip(), deger.strip()))
-    return kurallar
-
-
-def desen_uyar(desen, yol):
-    if desen.startswith("http"):
-        return False  # alan adına bağlı kurallar yerelde uygulanmaz
-    rx = "^" + re.escape(desen).replace(r"\*", ".*") + "$"
-    return re.match(rx, yol) is not None
+def kaynak_uyar(kaynak, yol):
+    return re.fullmatch(kaynak, yol) is not None
 
 
 class Isleyici(http.server.SimpleHTTPRequestHandler):
@@ -98,21 +89,27 @@ class Isleyici(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
 
     def isle(self, govde_gonder):
+        ayar = ayarlar()
         parca = urlsplit(self.path)
         yol = unquote(parca.path)
         sorgu = ("?" + parca.query) if parca.query else ""
 
-        for kaynak, hedef, kod in yonlendirmeleri_oku():
-            if yol == kaynak:
-                return self.yonlendir(hedef, kod)
-
-        # Temiz adres kuralları
-        if yol.endswith("/index.html"):
-            return self.yonlendir(yol[: -len("index.html")] + sorgu, 308)
-        if yol.endswith(".html"):
-            return self.yonlendir(yol[: -len(".html")] + sorgu, 308)
-        if yol != "/" and yol.endswith("/") and os.path.isfile(os.path.join(KOK, yol.strip("/") + ".html")):
+        # trailingSlash: false -> sondaki eğik çizgi kaldırılır
+        if ayar.get("trailingSlash") is False and yol != "/" and yol.endswith("/"):
             return self.yonlendir(yol.rstrip("/") + sorgu, 308)
+
+        # cleanUrls -> .html uzantısı kaldırılır
+        if ayar.get("cleanUrls"):
+            if yol.endswith("/index.html"):
+                return self.yonlendir(yol[: -len("index.html")] + sorgu, 308)
+            if yol.endswith(".html"):
+                return self.yonlendir(yol[: -len(".html")] + sorgu, 308)
+
+        # redirects
+        for kural in ayar.get("redirects", []):
+            if kaynak_uyar(kural["source"], yol) and kosullar_tutuyor(kural, self.headers):
+                kod = kural.get("statusCode") or (308 if kural.get("permanent", True) else 307)
+                return self.yonlendir(kural["destination"], kod)
 
         dosya = None
         aday = os.path.normpath(os.path.join(KOK, yol.lstrip("/")))
@@ -121,9 +118,9 @@ class Isleyici(http.server.SimpleHTTPRequestHandler):
         if aday:
             if os.path.isdir(aday) and os.path.isfile(os.path.join(aday, "index.html")):
                 dosya = os.path.join(aday, "index.html")
-            elif os.path.isfile(aday) and not os.path.basename(aday).startswith("_"):
+            elif os.path.isfile(aday):
                 dosya = aday
-            elif os.path.isfile(aday + ".html"):
+            elif ayar.get("cleanUrls") and os.path.isfile(aday + ".html"):
                 dosya = aday + ".html"
 
         durum = 200
@@ -147,14 +144,14 @@ class Isleyici(http.server.SimpleHTTPRequestHandler):
         if kodlama:
             self.send_header("Content-Encoding", kodlama)
             self.send_header("Vary", "Accept-Encoding")
-        onbellek = "public, max-age=0, must-revalidate"
-        for desen, basliklar in basliklari_oku():
-            if desen_uyar(desen, yol):
-                for ad, deger in basliklar:
-                    if ad.lower() == "cache-control":
-                        onbellek = deger
+        onbellek = "public, max-age=0, must-revalidate"  # Vercel'in statik dosyalar için varsayılanı
+        for kural in ayar.get("headers", []):
+            if kaynak_uyar(kural["source"], yol) and kosullar_tutuyor(kural, self.headers):
+                for b in kural["headers"]:
+                    if b["key"].lower() == "cache-control":
+                        onbellek = b["value"]
                     else:
-                        self.send_header(ad, deger)
+                        self.send_header(b["key"], b["value"])
         self.send_header("Cache-Control", onbellek)
         self.end_headers()
         if govde_gonder:
