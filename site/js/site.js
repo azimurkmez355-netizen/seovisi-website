@@ -1,13 +1,49 @@
 /* seovisi.com.tr — site betiği (derleme yok, dış kaynak yok).
-   1) Dar ekranda menü   2) Kaydırınca üst bölüm   3) Fareyle ışık ve eğim efektleri
-   Betik çalışmazsa site eksiksiz çalışır; yalnızca bu efektler olmaz. */
+   1) Üst menü: kaydırınca belirginleşir, altındaki zemine göre koyu/açık cam olur
+   2) Dar ekranda menü   3) Fareyle ışık ve eğim efektleri
+   Betik çalışmazsa site eksiksiz çalışır; menü koyu cam kalır, yalnızca bu efektler olmaz. */
 (function () {
   "use strict";
 
   var kok = document.documentElement;
   var hareketAzalt = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  /* 1) Menü */
+  /* 1) Üst menü */
+  var ust = document.querySelector(".ust");
+  var iste = function () {};
+  if (ust) {
+    var yapraklar = Array.prototype.slice.call(document.querySelectorAll(".yaprak"));
+    var bekliyor = false;
+    var guncelle = function () {
+      bekliyor = false;
+      ust.classList.toggle("kaydi", window.scrollY > 12);
+      var acik = false;
+      if (!kok.classList.contains("menu-acik")) {
+        var kapsul = ust.firstElementChild;
+        var k = kapsul ? kapsul.getBoundingClientRect() : null;
+        var orta = k ? k.top + k.height / 2 : 43;
+        for (var i = 0; i < yapraklar.length; i++) {
+          var r = yapraklar[i].getBoundingClientRect();
+          if (r.top <= orta && r.bottom >= orta) {
+            acik = true;
+            break;
+          }
+        }
+      }
+      ust.classList.toggle("acik-zemin", acik);
+    };
+    iste = function () {
+      if (!bekliyor) {
+        bekliyor = true;
+        window.requestAnimationFrame(guncelle);
+      }
+    };
+    window.addEventListener("scroll", iste, { passive: true });
+    window.addEventListener("resize", iste, { passive: true });
+    iste();
+  }
+
+  /* 2) Dar ekranda menü */
   var dugme = document.querySelector("[data-menu-dugme]");
   var menu = document.getElementById("ana-menu");
   if (dugme && menu) {
@@ -21,6 +57,7 @@
       menu.classList.toggle("acik", acik);
       kok.classList.toggle("menu-acik", acik);
       if (yazi) yazi.textContent = acik ? "Kapat" : "Menü";
+      iste();
       if (acik) {
         var ilk = menu.querySelector("a");
         if (ilk) ilk.focus();
@@ -49,21 +86,6 @@
     window.matchMedia("(min-width: 1024px)").addEventListener("change", function (olay) {
       if (olay.matches) ayarla(false);
     });
-  }
-
-  /* 2) Kaydırınca üst bölüm belirginleşir */
-  var ust = document.querySelector(".ust");
-  if (ust) {
-    var kaydi = null;
-    var bak = function () {
-      var simdi = window.scrollY > 12;
-      if (simdi !== kaydi) {
-        kaydi = simdi;
-        ust.classList.toggle("kaydi", simdi);
-      }
-    };
-    window.addEventListener("scroll", bak, { passive: true });
-    bak();
   }
 
   /* 3) Fareyle ışık takibi ve giriş panelinin hafif eğimi (yalnızca fare kullananlarda) */

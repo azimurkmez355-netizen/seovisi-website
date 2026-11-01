@@ -21,7 +21,9 @@ sonuçlar, hukuki metinler) **`YAPILACAKLAR.md`** listesindedir; doldurulan madd
 - Uydurma müşteri, yorum, logo, istatistik, ödül yok.
 - Ideasoft logosu (site sahibinin 1 Kasım 2026 kararıyla) yalnızca sahibinin verdiği dosyayla
   (`site/marka/ideasoft/`), değiştirilmeden kullanılır: "Ideasoft App Store" düğmelerinde ve seovisi ⇄ Ideasoft
-  bağlantı görselinde. Logo; renk, oran ya da biçim değiştirilerek kullanılmaz. Metinde ad "Ideasoft" yazılır.
+  bağlantı görselinde. Şu an kare uygulama ikonu sürümü (`ideasoft-ikon-192.webp`) köşeleri yuvarlatılmış
+  olarak gösteriliyor; daire sürümü (`ideasoft-logo-192.webp`) de klasörde. Logonun rengi ve oranı
+  değiştirilmez. Metinde ad "Ideasoft" yazılır.
 - "Yakında" özellikleri ya hiç yazılmaz ya da açıkça "Yakında" etiketiyle yazılır.
 - Fiyat yazılmaz (kesinleşmedi): "Fiyatlar ve satın alma Ideasoft App Store'da." Sitede ödeme alınmaz.
 - Panel ekran görüntüleri gelene kadar açıkça işaretli yer tutucu kullanılır.
@@ -50,6 +52,8 @@ sonuçlar, hukuki metinler) **`YAPILACAKLAR.md`** listesindedir; doldurulan madd
   `.bolum`, açık bölümler `.yaprak` sınıfıyla yazılır; renkler `site/css/site.css` başındaki
   değişkenlerden gelir. Logo koyu zemin sürümü (`marka/seovisi-logo-koyu-zemin.svg`) kullanılır.
 - Ana motif logodaki 3×3 "tarama ızgarası": gri → mavi (taranıyor) → yeşil (tamam).
+- Üst menü yüzen bir cam kapsüldür: koyu bölümlerin üstünde koyu cam, `.yaprak` bölümlerin üstünde
+  açık cam olur (`site.js` `.acik-zemin` sınıfı; logo da açık/koyu sürüme geçer). Betik çalışmazsa koyu kalır.
 - Hareket kuralları: yalnızca `transform`/`opacity` (ve `translate`/`scale`/`rotate`) canlandırılır;
   **yazı içeren öğelerin opaklığı canlandırılmaz** (erişilebilirlik denetimi). Bütün hareketler
   `prefers-reduced-motion: no-preference` içinde; temel stil hareketin son hâlidir.
@@ -80,7 +84,7 @@ site/                 yayınlanan klasör
   *.html              sayfalar (index, ozellikler, nasil-calisir, paketler, sss, iletisim,
                       kullanim-kosullari, gizlilik-ve-kvkk, cerez-politikasi, app-store-yakinda, 404)
   css/site.css        bütün stiller (renkler en üstte değişken olarak)
-  js/site.js          yalnızca mobil menü
+  js/site.js          cam üst menü (zemine göre koyu/açık), mobil menü, fareyle ışık ve eğim
   fontlar/            Plus Jakarta Sans (Latin + Türkçe alt küme) ve OFL lisansı
   marka/              logo, işaret, favicon, uygulama ikonları
   gorseller/ekran/    panel ekran görüntüleri (şimdilik yer tutucular)
