@@ -17,6 +17,7 @@ güncellenir ve bu listeden düşer. (Teknik not: kodda her yer tutucunun yanın
 | 7 | **Örnek sonuçlar** (önce / sonra ölçümü) | Ana sayfanın "Örnek sonuçlar" bölümü | `site/index.html` (`ornek-sonuclar` bölümü) | Bekliyor. Yayından önce ya doldurun ya da gizleyin (aşağıya bakın) |
 | 8 | **Fiyatlar** (kesinleşince, isterseniz) | Paketler sayfası | `site/paketler.html` içindeki işaretli "PAKET BİLGİLERİ" bloğu | Şimdilik "Fiyatlar ve satın alma Ideasoft App Store'da" yazıyor |
 | — | Logo ve ikonlar | Her sayfa | `site/marka/` | **Tamam:** gönderdiğiniz logo paketinden eklendi |
+| 9 | **Ideasoft logosunun daha keskin sürümü** (isteğe bağlı) | "Ideasoft App Store" düğmeleri, bağlantı görseli | `site/marka/ideasoft/` | Gönderdiğiniz PNG kullanılıyor (dairenin dışı şeffaf yapıldı, logoya dokunulmadı). SVG ya da büyük boyutlu sürümünüz varsa daha net görünür |
 
 ### Ekran görüntüleri listesi
 
@@ -95,6 +96,9 @@ Size soru sormadan ilerlemem istendiği için bazı konularda kendim karar verdi
    var, ama Google yazılımlarda yıldızlı / zengin sonuç göstermek için kullanıcı puanı ister. Sahte
    puan eklenmedi; bu yüzden zengin sonuç çıkmayabilir. Gerçek puanlar olunca eklenebilir.
    Ücretsiz analiz, yapısal veride "0 TL" teklif olarak işaretli.
+9. **Ideasoft logosu:** İsteğiniz üzerine "Ideasoft App Store" düğmelerine ve seovisi ⇄ Ideasoft
+   bağlantı görseline eklendi. Ideasoft'un logo kullanımıyla ilgili kuralları ya da izin şartı varsa
+   (en küçük boyut, boşluk, renk gibi) bana iletin, ona göre ayarlayayım.
 
 ## 4. Avukat için bilgi
 

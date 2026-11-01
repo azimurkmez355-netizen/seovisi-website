@@ -19,7 +19,9 @@ sonuçlar, hukuki metinler) **`YAPILACAKLAR.md`** listesindedir; doldurulan madd
   **"Google'ın önerdiği temel kuralları ürünlerinize eksiksiz uygular."**
 - Rakip firmaların adı sitede geçmez.
 - Uydurma müşteri, yorum, logo, istatistik, ödül yok.
-- Ideasoft'un logosu kullanılmaz; adı düz metin olarak anılır ("Ideasoft").
+- Ideasoft logosu (site sahibinin 1 Kasım 2026 kararıyla) yalnızca sahibinin verdiği dosyayla
+  (`site/marka/ideasoft/`), değiştirilmeden kullanılır: "Ideasoft App Store" düğmelerinde ve seovisi ⇄ Ideasoft
+  bağlantı görselinde. Logo; renk, oran ya da biçim değiştirilerek kullanılmaz. Metinde ad "Ideasoft" yazılır.
 - "Yakında" özellikleri ya hiç yazılmaz ya da açıkça "Yakında" etiketiyle yazılır.
 - Fiyat yazılmaz (kesinleşmedi): "Fiyatlar ve satın alma Ideasoft App Store'da." Sitede ödeme alınmaz.
 - Panel ekran görüntüleri gelene kadar açıkça işaretli yer tutucu kullanılır.

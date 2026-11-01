@@ -450,6 +450,59 @@ strong, b { font-weight: 700; }
 }
 .metin-baglanti:hover { color: var(--baglanti); text-decoration: underline; }
 
+/* Ideasoft logosu (düğmelerde): dairesel logo, ince beyaz halka ile */
+.ideasoft-logo {
+  flex: none;
+  width: 26px; height: 26px;
+  margin-left: -.35rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, .92);
+}
+.dugme-kucuk .ideasoft-logo { width: 22px; height: 22px; margin-left: -.3rem; }
+.yaprak .dugme-cam .ideasoft-logo { box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--gri-kare); }
+
+/* seovisi ⇄ Ideasoft bağlantı görseli */
+.bas-satir {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem 3rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.bas-satir .bolum-bas { margin-bottom: 0; }
+.ikili {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--cizgi), 0 26px 50px -30px rgba(21, 22, 26, .4);
+}
+.ikili-kutu { display: grid; place-items: center; flex: none; width: 68px; height: 68px; }
+.ikili-kutu img { width: 100%; height: 100%; }
+.ikili-daire img { border-radius: 50%; }
+.ikili-hat { display: flex; align-items: center; gap: 9px; }
+.ikili-hat i { position: relative; width: 9px; height: 9px; border-radius: 50%; background: var(--gri-kare); }
+.ikili-hat i::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--yesil); opacity: 0; }
+.ikili-koyu {
+  display: flex;
+  width: fit-content;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, .04);
+  box-shadow: inset 0 0 0 1px var(--gece-cizgi-guclu), 0 30px 60px -30px rgba(0, 0, 0, .8);
+}
+.ikili-koyu .ikili-kutu { width: 84px; height: 84px; }
+.ikili-koyu .ikili-hat i { background: var(--gri-k); }
+.ikili-koyu .ikili-hat i::after { background: var(--yesil-k); box-shadow: 0 0 10px rgba(43, 192, 113, .7); }
+@media (max-width: 479.98px) {
+  .ikili { gap: .7rem; padding: .8rem 1rem; }
+  .ikili-kutu { width: 54px; height: 54px; }
+  .ikili-hat { gap: 6px; }
+  .ikili-hat i { width: 7px; height: 7px; }
+}
+
 /* ---------- 7. Işık efekti (fareyle) ---------- */
 .isikli { position: relative; isolation: isolate; }
 .isikli::before {
@@ -1358,7 +1411,7 @@ strong, b { font-weight: 700; }
 /* ---------- 19. Paketler ---------- */
 .paketler { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
 @media (min-width: 700px) { .paketler { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1140px) { .paketler { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1280px) { .paketler { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .paket {
   display: flex;
   flex-direction: column;
@@ -1377,7 +1430,7 @@ strong, b { font-weight: 700; }
 .paket-aciklama { margin: 0; color: var(--gece-soluk); }
 .paket-fiyat { margin: auto 0 0; padding-top: 1rem; border-top: 1px solid var(--gece-cizgi); color: var(--gece-soluk); font-size: .95rem; }
 .paket-fiyat strong { display: block; color: #fff; font-size: 1.06rem; }
-.paket .dugme { width: 100%; }
+.paket .dugme { width: 100%; padding-inline: .9rem; font-size: .95rem; white-space: nowrap; }
 
 .ortak-ozellikler {
   display: grid;
@@ -1618,6 +1671,11 @@ main > .bolum, main > .cagri, main > .serit { background-color: var(--gece); }
   .s-olcer b { animation: s-olc 8s var(--egri) infinite; }
   .rozet-yakinda::after { animation: parla 3.2s ease-in-out infinite; }
   .kalkan-dalga { animation: dalga 3.6s ease-out infinite; }
+  .ikili-hat i::after { animation: akis 2.2s ease-in-out infinite; }
+  .ikili-hat i:nth-child(2)::after { animation-delay: .18s; }
+  .ikili-hat i:nth-child(3)::after { animation-delay: .36s; }
+  .ikili-hat i:nth-child(4)::after { animation-delay: .54s; }
+  .ikili-hat i:nth-child(5)::after { animation-delay: .72s; }
   .kalkan-dalga.d2 { animation-delay: 1.2s; }
   .kalkan-dalga.d3 { animation-delay: 2.4s; }
   .cagri-kareler i.y { animation: kare-nefes 4s ease-in-out infinite; }
@@ -1715,6 +1773,7 @@ main > .bolum, main > .cagri, main > .serit { background-color: var(--gece); }
 }
 @keyframes parla { 0%, 55% { transform: translateX(-120%); } 100% { transform: translateX(120%); } }
 @keyframes dalga { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(2.3); opacity: 0; } }
+@keyframes akis { 0%, 100% { opacity: 0; } 30%, 55% { opacity: 1; } }
 @keyframes kare-nefes { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
 
 /* ---------- 26. Bölüm başlıklarındaki 3×3 ızgara motifi (iz-0 … iz-9: dolu kare sayısı) ---------- */
