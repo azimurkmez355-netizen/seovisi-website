@@ -10,10 +10,10 @@ güncellenir ve bu listeden düşer. (Teknik not: kodda her yer tutucunun yanın
 |---|---|---|---|---|
 | 1 | **Ideasoft App Store adresi** | Bütün "Ideasoft App Store'da incele" düğmeleri | Yalnızca `site/_redirects` (tek satır) | Bekliyor. Düğmeler şimdilik "sayfa hazırlanıyor" bilgisine gidiyor |
 | 2 | **E-posta adresi** | İletişim sayfası, hukuki sayfalar, yapısal veri | `site/iletisim.html` | **Tamam:** azimurkmez355@gmail.com |
-| 3 | **WhatsApp / telefon** | İletişim sayfası, hukuki sayfalar, yapısal veri | `site/iletisim.html` | **Tamam:** +90 535 553 40 92 (WhatsApp düğmesi de bu numaraya gidiyor) |
+| 3 | **WhatsApp / telefon** | İletişim sayfası, hukuki sayfalar, yapısal veri | `site/iletisim.html` | **Tamam:** +90 535 553 40 92 (WhatsApp düğmesi de bu numaraya gidiyor; numarada WhatsApp açık) |
 | 4 | **Şirket bilgileri** (unvan, adres, vergi dairesi ve no, MERSİS no) | 3 hukuki sayfa | `site/kullanim-kosullari.html`, `site/gizlilik-ve-kvkk.html`, `site/cerez-politikasi.html` | Bekliyor. E-posta ve telefon eklendi |
 | 5 | **Hukuki metinler** (avukat yazacak) | Kullanım koşulları · Gizlilik politikası ve KVKK aydınlatma metni · Çerez politikası | Aynı 3 dosya | Bekliyor. Sayfalarda "Taslak" uyarısı var ve arama motorlarına kapalılar |
-| 6 | **Panel ekran görüntüleri** (aşağıdaki liste) | Ana sayfa, Özellikler, Nasıl çalışır | `site/gorseller/ekran/` | **8'den 4'ü geldi.** Kalan 4 ekranın yerinde açıkça "YER TUTUCU" yazan görseller var |
+| 6 | **Panel ekran görüntüleri** (aşağıdaki liste) | Ana sayfa, Özellikler, Nasıl çalışır | `site/gorseller/ekran/` | **8'den 5'i geldi.** Kalan 3 ekranın yerinde açıkça "YER TUTUCU" yazan görseller var |
 | 7 | **Örnek sonuçlar** (önce / sonra ölçümü) | Ana sayfanın "Örnek sonuçlar" bölümü | `site/index.html` (`ornek-sonuclar` bölümü) | Bekliyor. Yayından önce ya doldurun ya da gizleyin (aşağıya bakın) |
 | 8 | **Fiyatlar** (kesinleşince, isterseniz) | Paketler sayfası | `site/paketler.html` içindeki işaretli "PAKET BİLGİLERİ" bloğu | Şimdilik "Fiyatlar ve satın alma Ideasoft App Store'da" yazıyor |
 | — | Logo ve ikonlar | Her sayfa | `site/marka/` | **Tamam:** gönderdiğiniz logo paketinden eklendi |
@@ -32,7 +32,7 @@ hızlı yüklenen WebP biçiminde iki boyutta yerleştirir.
 | Kategori analizi | `kategori-analizi` | Ana sayfa (panel turu), Özellikler | **Tamam** |
 | Yeni ürün otopilotu | `otopilot` | Ana sayfa (panel turu), Özellikler | **Tamam** |
 | Ürün SEO'su (hazırlanan başlık, meta açıklama ve açıklamanın kontrol edilip gönderildiği ekran) | `urun-seo` | Ana sayfa (panel turu), Özellikler | Bekliyor |
-| Açıklama şablonu (görünüm seçimi ve canlı önizleme) | `aciklama-sablonu` | Ana sayfa (panel turu), Özellikler | Bekliyor |
+| Açıklama şablonu (görünüm seçimi ve canlı önizleme) | `aciklama-sablonu` | Ana sayfa (panel turu), Özellikler | **Tamam** |
 | Kurulum sihirbazı (4 adım) | `kurulum-sihirbazi` | Nasıl çalışır | Bekliyor |
 | Değişiklik geçmişi ve tek tuşla geri alma | `geri-alma` | Şu an kullanılmıyor (isteğe bağlı) | Bekliyor |
 
@@ -43,8 +43,9 @@ bağlı olarak eklenebilir.
 **Not:** Görüntülerdeki mağaza adı, ürün adları ve stok kodları **bulanıklaştırıldı**. Görüntüler
 "vitrin" görünümünde: koyu, ışıklı bir zeminde pencere olarak duruyor, önemli bölüm yakın çekim
 kartında büyütülüyor. Sağdaki boş alan ve ekran alıntısı aracı bildirimi kırpıldı. Ürün sayıları ve
-puanlar görünür kaldı; bunların da gizlenmesini isterseniz söyleyin. Yeni gönderdiğiniz ekranlar da
-aynı şekilde hazırlanır (teknik not: `araclar/vitrin/`).
+puanlar, isteğiniz üzerine görünür bırakıldı. Açıklama şablonu ekranındaki örnek açıklamada geçen
+marka adı (başka bir firmanın markası) da bulanıklaştırıldı. Yeni gönderdiğiniz ekranlar da aynı
+şekilde hazırlanır (teknik not: `araclar/vitrin/`).
 
 ### Örnek sonuçlar bölümünü gizlemek
 

@@ -9,8 +9,9 @@ Adımlar:
   4) vitrin.js ile koyu, ışıklı zeminde pencere + yakın çekim kartı olarak çizer
   5) site/gorseller/ekran/<ad>-1600.webp ve <ad>-800.webp dosyalarını yazar
 
-Kullanım (ayar dosyası örneği: ornek-ayar.json):
-  python3 araclar/vitrin/hazirla.py araclar/vitrin/ornek-ayar.json
+Kullanım:
+  python3 araclar/vitrin/hazirla.py araclar/vitrin/sitedeki-ekranlar.json   (sitedeki bütün ekranlar)
+  python3 araclar/vitrin/hazirla.py araclar/vitrin/ornek-ayar.json          (yeni ekran için örnek)
 
 Gerekenler: Python 3 + Pillow, Node.js + Playwright (Claude Code bulut oturumunda hazır gelir).
 """
@@ -55,7 +56,9 @@ def main():
     os.makedirs(gecici, exist_ok=True)
     cizim = []
     for a in ayarlar:
-        im = Image.open(a["kaynak"]).convert("RGB")
+        # Göreli yollar ayar dosyasının bulunduğu klasöre göre okunur
+        kaynak = os.path.join(os.path.dirname(os.path.abspath(sys.argv[1])), a["kaynak"])
+        im = Image.open(kaynak).convert("RGB")
         for kutu in a.get("bulanik", []):
             bulaniklastir(im, kutu)
         ana = kirp_16_10(im, a.get("genislik_siniri"))

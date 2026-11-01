@@ -1,0 +1,7 @@
+[
+  {"ad": "genel-bakis", "kaynak": "kaynak/genel-bakis.webp", "yakin": [596, 200, 1160, 436], "yakin_genislik": 720, "etiket": "SEO haritası · her kare bir ürün"},
+  {"ad": "uyarilar", "kaynak": "kaynak/uyarilar.webp", "genislik_siniri": 1500, "yakin": [878, 190, 1496, 396], "yakin_genislik": 760, "etiket": "Fiyat, stok, kopya ve kırık bağlantı uyarıları"},
+  {"ad": "kategori-analizi", "kaynak": "kaynak/kategori-analizi.webp", "yakin": [280, 88, 976, 312], "yakin_genislik": 740, "etiket": "Kategori analizi ve düzeltme"},
+  {"ad": "otopilot", "kaynak": "kaynak/otopilot.webp", "yakin": [286, 292, 1160, 518], "yakin_genislik": 760, "etiket": "Onaylı ya da otomatik gönderim"},
+  {"ad": "aciklama-sablonu", "kaynak": "kaynak/aciklama-sablonu.webp", "yakin": [300, 356, 860, 636], "yakin_genislik": 740, "etiket": "4 görünüm, ana renk ve canlı önizleme"}
+]

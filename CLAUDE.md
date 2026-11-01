@@ -101,7 +101,8 @@ site/                 yayınlanan klasör
 araclar/              yayına girmez
   onizleme.py         yerel önizleme (Cloudflare Pages'i taklit eder): python3 araclar/onizleme.py
   kontrol.py          site kontrolü: python3 araclar/kontrol.py
-  vitrin/             ekran görüntüsünü bulanıklaştırıp vitrin görseline çevirir (BENIOKU.md)
+  vitrin/             ekran görüntüsünü bulanıklaştırıp vitrin görseline çevirir (BENIOKU.md);
+                      bulanık kaynaklar kaynak/, ayarlar sitedeki-ekranlar.json
 URUN-BILGISI.md       içeriğin tek kaynağı
 YAPILACAKLAR.md       yer tutucular ve sahibin kontrol edeceği kararlar
 KURULUM.md            yayın ve DNS adımları
