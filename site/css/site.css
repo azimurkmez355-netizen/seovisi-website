@@ -112,7 +112,8 @@ h1 { font-size: clamp(2.35rem, 1.5rem + 4vw, 4.1rem); line-height: 1.04; letter-
 h2 { font-size: clamp(1.85rem, 1.35rem + 2.2vw, 2.9rem); line-height: 1.08; letter-spacing: -0.03em; }
 h3 { font-size: clamp(1.2rem, 1.1rem + .4vw, 1.375rem); font-weight: 700; letter-spacing: -0.015em; line-height: 1.25; }
 
-p { margin: 0 0 1em; text-wrap: pretty; }
+p { margin: 0 0 1em; }
+.giris, .bolum-bas > p { text-wrap: pretty; }
 p:last-child { margin-bottom: 0; }
 
 a { color: var(--mavi); text-decoration-thickness: 1.5px; text-underline-offset: .18em; }
@@ -159,11 +160,8 @@ strong { font-weight: 700; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, .94);
+  background: rgba(255, 255, 255, .97);
   border-bottom: 1px solid var(--cizgi);
-}
-@supports (backdrop-filter: blur(8px)) {
-  .ust { background: rgba(255, 255, 255, .86); backdrop-filter: saturate(1.4) blur(12px); }
 }
 .ust-ic {
   display: flex;
@@ -415,6 +413,7 @@ strong { font-weight: 700; }
   list-style: none;
 }
 .tarama-izgara li {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -427,9 +426,9 @@ strong { font-weight: 700; }
   font-size: clamp(.78rem, .68rem + .35vw, .95rem);
   font-weight: 700;
   line-height: 1.25;
-  hyphens: auto;
 }
 .tarama-izgara .kare {
+  position: relative;
   display: grid;
   place-items: center;
   width: clamp(20px, 2.4vw, 26px);
@@ -437,7 +436,7 @@ strong { font-weight: 700; }
   border-radius: 6px;
   background: var(--yesil);
 }
-.tarama-izgara .kare svg { width: 62%; height: 62%; }
+.tarama-izgara .kare svg { position: relative; z-index: 2; width: 62%; height: 62%; }
 .tarama-alt { margin: 1rem 0 0; color: var(--soluk); font-size: .875rem; }
 
 .tarama-izgara li:nth-child(1) { --s: 0; }
@@ -450,23 +449,54 @@ strong { font-weight: 700; }
 .tarama-izgara li:nth-child(8) { --s: 7; }
 .tarama-izgara li:nth-child(9) { --s: 8; }
 
-/* Hafif canlandırma: kareler sırayla griden maviye (taranıyor), sonra yeşile (tamam) döner.
-   "Hareketi azalt" ayarı açık olanlarda hiç oynatılmaz; son hâli gösterilir. */
+/* Hafif canlandırma: her kare sırayla gri → mavi (taranıyor) → yeşil (tamam) olur.
+   Yalnızca opaklık ve büyüklük değişir; "hareketi azalt" ayarı açık olanlarda hiç oynatılmaz. */
 @media (prefers-reduced-motion: no-preference) {
-  .tarama-izgara li { animation: tara-kutu .7s ease both; animation-delay: calc(var(--s) * 180ms + 450ms); }
-  .tarama-izgara .kare { animation: tara-kare .7s ease both; animation-delay: calc(var(--s) * 180ms + 450ms); }
-  .tarama-izgara .kare svg { animation: tara-tik .7s ease both; animation-delay: calc(var(--s) * 180ms + 450ms); }
-  .tarama-durum { animation: tara-durum .4s ease both; animation-delay: 2.2s; }
+  .tarama-izgara li::after,
+  .tarama-izgara .kare::before,
+  .tarama-izgara .kare::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-delay: calc(var(--s) * 90ms + 150ms);
+  }
+  .tarama-izgara li::after {
+    inset: -1.5px;
+    border: 1.5px solid var(--mavi);
+    border-radius: inherit;
+    background: rgba(47, 75, 240, .06);
+    opacity: 0;
+    animation-name: tara-vurgu;
+  }
+  .tarama-izgara .kare::before {
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    background: var(--gri-kare);
+    animation-name: tara-gri;
+  }
+  .tarama-izgara .kare::after {
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    background: var(--mavi);
+    opacity: 0;
+    animation-name: tara-vurgu;
+  }
+  .tarama-izgara .kare svg { animation: tara-tik .5s ease both; animation-delay: calc(var(--s) * 90ms + 150ms); }
+  .tarama-durum { animation: tara-durum .3s ease both; animation-delay: 1.1s; }
 }
-@keyframes tara-kutu {
-  0% { border-color: var(--cizgi); background: var(--zemin-2); }
-  45% { border-color: var(--mavi); background: var(--mavi-acik); }
-  100% { border-color: var(--cizgi); background: #fff; }
+@keyframes tara-gri {
+  0%, 35% { opacity: 1; }
+  45%, 100% { opacity: 0; }
 }
-@keyframes tara-kare {
-  0% { background: var(--gri-kare); }
-  45% { background: var(--mavi); }
-  100% { background: var(--yesil); }
+@keyframes tara-vurgu {
+  0% { opacity: 0; }
+  35% { opacity: 1; }
+  100% { opacity: 0; }
 }
 @keyframes tara-tik {
   0%, 55% { opacity: 0; transform: scale(.5); }
