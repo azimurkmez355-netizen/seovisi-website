@@ -99,6 +99,30 @@
     kart.style.setProperty("--my", (olay.clientY - r.top) + "px");
   }, { passive: true });
 
+  // Giriş bölümünde fareyi izleyen yumuşak ışık
+  var kahraman = document.querySelector("[data-isik]");
+  var isik = kahraman ? kahraman.querySelector(".isik-takip") : null;
+  if (kahraman && isik) {
+    var isikBekliyor = 0;
+    var isikX = 0;
+    var isikY = 0;
+    kahraman.addEventListener("pointermove", function (olay) {
+      var r = kahraman.getBoundingClientRect();
+      isikX = olay.clientX - r.left;
+      isikY = olay.clientY - r.top;
+      if (isikBekliyor) return;
+      isikBekliyor = window.requestAnimationFrame(function () {
+        isikBekliyor = 0;
+        isik.style.setProperty("--tx", isikX + "px");
+        isik.style.setProperty("--ty", isikY + "px");
+        kahraman.classList.add("isik-acik");
+      });
+    }, { passive: true });
+    kahraman.addEventListener("pointerleave", function () {
+      kahraman.classList.remove("isik-acik");
+    });
+  }
+
   var sahne = document.querySelector("[data-egim]");
   var panel = sahne ? sahne.querySelector(".panel") : null;
   if (!panel) return;

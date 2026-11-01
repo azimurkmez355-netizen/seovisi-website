@@ -60,6 +60,10 @@ sonuçlar, hukuki metinler) **`YAPILACAKLAR.md`** listesindedir; doldurulan madd
   Kaydırınca belirme için öğeye `belir` sınıfı verilir (CSS kaydırma zaman çizelgesi, betik yok).
 - Ana sayfadaki çizimler (ürün taraması paneli, kategori ağacı, otopilot, şablonlar) temsilîdir;
   gerçek panel ekranı gibi sunulmaz. Örnek veri içeren çizimlerde "Örnek" etiketi bulunur.
+- Giriş bölümleri (`.kahraman`, `.sayfa-bas`, `.tam-ekran`) `isolation: isolate` taşır; arka plan
+  parıltıları (`.kahraman-zemin`, z-index -1) bu sayede sayfa zemininin önünde görünür. Koyu zeminlerde
+  hafif bir film dokusu (SVG gürültü) vardır.
+- Sayfalar arası geçiş CSS `@view-transition` ile yapılır (betik yok, hareketi azalt ayarında kapalı).
 - Ekranın altındaki ana bölümler `content-visibility: auto` ile ertelenir (hızlı açılış). Tam sayfa
   ekran görüntüsü alırken test aracında bu özelliği kapatın, yoksa bölümler boş görünür.
 
