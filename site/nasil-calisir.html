@@ -12,7 +12,8 @@
 <link rel="icon" href="/marka/seovisi-isaret.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/marka/seovisi-ikon-180.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#14151B">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="seovisi">
 <meta property="og:locale" content="tr_TR">
@@ -33,147 +34,155 @@
 </head>
 <body>
 <a class="atla" href="#icerik">İçeriğe geç</a>
+<div class="ilerleme" aria-hidden="true"></div>
 <header class="ust">
-  <div class="kap ust-ic">
-    <a class="logo" href="/"><img src="/marka/seovisi-logo.svg" alt="seovisi ana sayfa" width="132" height="35"></a>
-    <a class="menu-dugme" href="#alt-menu" data-menu-dugme><svg class="menu-ikon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="0" y="0" width="12" height="12" rx="3"/><rect x="18" y="0" width="12" height="12" rx="3"/><rect x="36" y="0" width="12" height="12" rx="3"/><rect x="0" y="18" width="12" height="12" rx="3"/><rect x="18" y="18" width="12" height="12" rx="3"/><rect x="36" y="18" width="12" height="12" rx="3"/><rect x="0" y="36" width="12" height="12" rx="3"/><rect x="18" y="36" width="12" height="12" rx="3"/><rect x="36" y="36" width="12" height="12" rx="3"/></svg>Menü</a>
+  <div class="ust-kapsul">
+    <a class="logo" href="/"><img src="/marka/seovisi-logo-koyu-zemin.svg" alt="seovisi ana sayfa" width="124" height="33"></a>
     <nav class="ana-menu" id="ana-menu" aria-label="Ana menü">
       <ul>
-          <li><a href="/ozellikler">Özellikler</a></li>
-          <li><a href="/nasil-calisir" aria-current="page">Nasıl çalışır</a></li>
-          <li><a href="/paketler">Paketler</a></li>
-          <li><a href="/sss">SSS</a></li>
-          <li><a href="/iletisim">İletişim</a></li>
-        <li class="menu-cta"><a class="dugme dugme-birincil dugme-kucuk" href="/app-store">Ideasoft App Store'da incele</a></li>
+        <li><a href="/ozellikler">Özellikler</a></li>
+        <li><a href="/nasil-calisir" aria-current="page">Nasıl çalışır</a></li>
+        <li><a href="/paketler">Paketler</a></li>
+        <li><a href="/sss">SSS</a></li>
+        <li><a href="/iletisim">İletişim</a></li>
       </ul>
+      <a class="dugme dugme-parilti dugme-kucuk menu-cta" href="/app-store">Ideasoft App Store'da incele</a>
     </nav>
+    <a class="menu-dugme" href="#alt-menu" data-menu-dugme><span class="menu-ikon" aria-hidden="true"><i></i><i></i></span><span class="menu-yazi">Menü</span></a>
   </div>
 </header>
 <main id="icerik">
 <section class="sayfa-bas" aria-labelledby="sayfa-baslik">
+  <div class="kahraman-zemin" aria-hidden="true"><span class="parlama parlama-1"></span><span class="parlama parlama-2"></span><span class="parlama parlama-3"></span><span class="kafes"></span></div>
   <div class="kap">
-    <p class="ust-yazi"><span class="iz iz-5" aria-hidden="true"></span>Nasıl çalışır</p>
-    <h1 id="sayfa-baslik">Kurulumdan ilk onaya: seovisi nasıl çalışır?</h1>
+    <p class="hap"><span class="hap-nokta" aria-hidden="true"></span>Nasıl çalışır</p>
+    <h1 id="sayfa-baslik">Kurulumdan ilk onaya: seovisi <span class="parilti-yazi">nasıl çalışır?</span></h1>
     <p class="giris">seovisi, Ideasoft mağazanızla birlikte çalışır. Kurulum birkaç adımda tamamlanır ve mağazanıza yalnızca onaylanan değişiklikler yazılır.</p>
     <nav class="icindekiler" aria-label="Bu sayfada"><ul><li><a href="#adimlar">Adımlar</a></li><li><a href="#panel">Panel</a></li><li><a href="#guvenlik">Güvenlik</a></li><li><a href="#abonelik">Abonelik</a></li></ul></nav>
   </div>
 </section>
 
-<section class="bolum" id="adimlar" aria-labelledby="adimlar-baslik">
+<div class="yaprak">
   <div class="kap">
-    <div class="bolum-bas">
-      <p class="ust-yazi"><span class="iz iz-4" aria-hidden="true"></span>Adımlar</p>
-      <h2 id="adimlar-baslik">Dört adımda başlayın</h2>
-      <p>Kurulum Ideasoft üzerinden yapılır; seovisi için ayrı bir şifre gerekmez.</p>
-    </div>
-    <div class="ozellik-satiri">
-      <ol class="adimlar adimlar-dikey">
-        <li><h3>Ideasoft App Store'dan kurun</h3><p>seovisi'yi Ideasoft App Store'dan mağazanıza kurarsınız.</p></li>
-        <li><h3>Mağazanız tanınır</h3><p>Mağazanız Ideasoft üzerinden tanınır. seovisi için ayrı bir şifre oluşturmanız gerekmez.</p></li>
-        <li>
-          <h3>Kurulum sihirbazını tamamlayın</h3>
-          <p>4 adımlı sihirbaz sizi yönlendirir:</p>
-          <ol class="alt-adimlar">
-            <li>Mağaza adı ve marka</li>
-            <li>Açıklama görünümü</li>
-            <li>İlk tarama ve özet</li>
-            <li>Paket bilgisi</li>
-          </ol>
-        </li>
-        <li><h3>Önerileri inceleyin ve onaylayın</h3><p>seovisi'nin hazırladığı önerileri inceleyin. Onayladıklarınız mağazanıza yazılır; her değişiklik yedeklenir.</p></li>
-      </ol>
-      <!-- YER-TUTUCU: ekran görüntüsü "kurulum sihirbazı" — gerçek görüntü gelince gorseller/ekran/kurulum-sihirbazi-800.webp ve kurulum-sihirbazi-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
-<figure class="ekran" data-yer-tutucu="ekran-kurulum-sihirbazi">
-  <img src="/gorseller/ekran/kurulum-sihirbazi-1600.webp" srcset="/gorseller/ekran/kurulum-sihirbazi-800.webp 800w, /gorseller/ekran/kurulum-sihirbazi-1600.webp 1600w" sizes="(min-width: 1024px) 640px, calc(100vw - 2.5rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde kurulum sihirbazı ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
-</figure>
-    </div>
-  </div>
-</section>
-
-<section class="bolum bolum-gri" id="panel" aria-labelledby="panel-baslik">
-  <div class="kap">
-    <div class="bolum-bas">
-      <p class="ust-yazi"><span class="iz iz-5" aria-hidden="true"></span>Panel</p>
-      <h2 id="panel-baslik">Panel nerede açılır?</h2>
-      <p>seovisi paneli Ideasoft yönetim panelinizin içinde açılır. İsterseniz ayrı bir sekmede tam ekran da kullanabilirsiniz.</p>
-    </div>
-    <div class="ozellik-satiri ozellik-satiri-ters">
-      <div class="ozellik-metin">
-        <h3>Mağazanızın durumu tek ekranda</h3>
-        <p>Genel bakışta her ürünün SEO, görsel ve kategori durumunu, mağaza SEO puanınızı ve önem sırasına göre yapılacakları görürsünüz.</p>
-        <p><a href="/ozellikler">Tüm özellikler</a></p>
+    <section id="adimlar" aria-labelledby="adimlar-baslik">
+      <div class="bolum-bas belir">
+        <p class="ust-yazi"><span class="iz iz-4" aria-hidden="true"></span>Adımlar</p>
+        <h2 id="adimlar-baslik">Dört adımda başlayın</h2>
+        <p>Kurulum Ideasoft üzerinden yapılır; seovisi için ayrı bir şifre gerekmez.</p>
       </div>
-      <!-- YER-TUTUCU: ekran görüntüsü "genel bakış" — gerçek görüntü gelince gorseller/ekran/genel-bakis-800.webp ve genel-bakis-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
-<figure class="ekran" data-yer-tutucu="ekran-genel-bakis">
-  <img src="/gorseller/ekran/genel-bakis-1600.webp" srcset="/gorseller/ekran/genel-bakis-800.webp 800w, /gorseller/ekran/genel-bakis-1600.webp 1600w" sizes="(min-width: 1024px) 640px, calc(100vw - 2.5rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde genel bakış ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
+      <div class="ozellik-satiri">
+        <ol class="adim-dikey">
+          <li class="adim belir"><span class="adim-no" aria-hidden="true">1</span><h3>Ideasoft App Store'dan kurun</h3><p>seovisi'yi Ideasoft App Store'dan mağazanıza kurarsınız.</p></li>
+          <li class="adim belir"><span class="adim-no" aria-hidden="true">2</span><h3>Mağazanız tanınır</h3><p>Mağazanız Ideasoft üzerinden tanınır. seovisi için ayrı bir şifre oluşturmanız gerekmez.</p></li>
+          <li class="adim belir"><span class="adim-no" aria-hidden="true">3</span><h3>Kurulum sihirbazını tamamlayın</h3><p>4 adımlı sihirbaz sizi yönlendirir:</p>
+            <ol class="cipler"><li>Mağaza adı ve marka</li><li>Açıklama görünümü</li><li>İlk tarama ve özet</li><li>Paket bilgisi</li></ol></li>
+          <li class="adim belir"><span class="adim-no" aria-hidden="true">4</span><h3>Önerileri inceleyin ve onaylayın</h3><p>seovisi'nin hazırladığı önerileri inceleyin. Onayladıklarınız mağazanıza yazılır; her değişiklik yedeklenir.</p></li>
+        </ol>
+        <div class="belir">
+          <!-- YER-TUTUCU: ekran görüntüsü "kurulum sihirbazı" — gerçek görüntü gelince gorseller/ekran/kurulum-sihirbazi-800.webp ve kurulum-sihirbazi-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
+<figure class="cerceve" data-yer-tutucu="ekran-kurulum-sihirbazi">
+  <div class="cerceve-ust" aria-hidden="true"><span class="noktalar"><i></i><i></i><i></i></span><span class="cerceve-adres">app.seovisi.com.tr</span></div>
+  <img src="/gorseller/ekran/kurulum-sihirbazi-1600.webp" srcset="/gorseller/ekran/kurulum-sihirbazi-800.webp 800w, /gorseller/ekran/kurulum-sihirbazi-1600.webp 1600w" sizes="(min-width: 1000px) 640px, calc(100vw - 3rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde kurulum sihirbazı ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
 </figure>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<section class="bolum" id="panel" aria-labelledby="panel-baslik">
+  <div class="kap">
+    <div class="ozellik-satiri ozellik-satiri-ters">
+      <div class="ozellik-metin belir">
+        <p class="ust-yazi"><span class="iz iz-5" aria-hidden="true"></span>Panel</p>
+        <h2 id="panel-baslik">Panel nerede açılır?</h2>
+        <p>seovisi paneli Ideasoft yönetim panelinizin içinde açılır. İsterseniz ayrı bir sekmede tam ekran da kullanabilirsiniz.</p>
+        <p>Genel bakışta her ürünün SEO, görsel ve kategori durumunu, mağaza SEO puanınızı ve önem sırasına göre yapılacakları görürsünüz.</p>
+        <p><a class="metin-baglanti" href="/ozellikler">Tüm özellikler <span class="ok" aria-hidden="true">→</span></a></p>
+      </div>
+      <div class="belir">
+        <!-- YER-TUTUCU: ekran görüntüsü "genel bakış" — gerçek görüntü gelince gorseller/ekran/genel-bakis-800.webp ve genel-bakis-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
+<figure class="cerceve" data-yer-tutucu="ekran-genel-bakis">
+  <div class="cerceve-ust" aria-hidden="true"><span class="noktalar"><i></i><i></i><i></i></span><span class="cerceve-adres">app.seovisi.com.tr</span></div>
+  <img src="/gorseller/ekran/genel-bakis-1600.webp" srcset="/gorseller/ekran/genel-bakis-800.webp 800w, /gorseller/ekran/genel-bakis-1600.webp 1600w" sizes="(min-width: 1000px) 640px, calc(100vw - 3rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde genel bakış ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
+</figure>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="bolum bolum-koyu" id="guvenlik" aria-labelledby="guvenlik-baslik">
+<section class="bolum" id="guvenlik" aria-labelledby="guvenlik-baslik">
   <div class="kap">
-    <div class="bolum-bas">
-      <p class="ust-yazi"><span class="iz iz-8" aria-hidden="true"></span>Güvenlik</p>
-      <h2 id="guvenlik-baslik">Mağazanıza yalnızca onaylanan değişiklikler yazılır</h2>
-      <p>seovisi mağazanızda değişiklik yaparken şu kurallara uyar.</p>
+    <div class="guvenlik-ic">
+      <div class="bolum-bas belir">
+        <p class="ust-yazi"><span class="iz iz-8" aria-hidden="true"></span>Güvenlik</p>
+        <h2 id="guvenlik-baslik">Mağazanıza yalnızca onaylanan değişiklikler yazılır</h2>
+        <p>seovisi mağazanızda değişiklik yaparken şu kurallara uyar. Yeni ürün otopilotunu otomatik gönderime alırsanız da yalnızca emin olunan öneriler yazılır; şüpheli öneriler onayınıza kalır.</p>
+      </div>
+      <div class="kalkan" aria-hidden="true">
+        <span class="kalkan-parilti"></span>
+        <span class="kalkan-halka"></span><span class="kalkan-halka h2"></span><span class="kalkan-halka h3"></span>
+        <span class="kalkan-dalga"></span><span class="kalkan-dalga d2"></span><span class="kalkan-dalga d3"></span>
+        <span class="kalkan-izgara"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
     </div>
-    <ul class="guven-listesi">
-      <li>
+    <ul class="guven-kartlar">
+      <li class="isikli belir">
         <h3><span class="tik" aria-hidden="true"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 8.4l2.6 2.6L12 5.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Tarama hiçbir şeyi değiştirmez</span></h3>
         <p>Tarama ve analiz mağazanızda hiçbir şeyi değiştirmez. Mağazanıza yalnızca onaylanan değişiklikler yazılır.</p>
       </li>
-      <li>
+      <li class="isikli belir">
         <h3><span class="tik" aria-hidden="true"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 8.4l2.6 2.6L12 5.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Yazmadan önce yeniden okur</span></h3>
         <p>Bir değişiklik yazılmadan hemen önce ürün mağazanızdan yeniden okunur.</p>
       </li>
-      <li>
+      <li class="isikli belir">
         <h3><span class="tik" aria-hidden="true"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 8.4l2.6 2.6L12 5.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Yazdıktan sonra kontrol eder</span></h3>
         <p>Yazdıktan sonra fiyat, stok, ürün adı gibi alanlar kontrol edilir. Biri değişmişse ürün eski hâline döndürülür ve işlem durur.</p>
       </li>
-      <li>
+      <li class="isikli belir">
         <h3><span class="tik" aria-hidden="true"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 8.4l2.6 2.6L12 5.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Her değişiklik yedeklenir</span></h3>
         <p>Yapılan her değişiklik yedeklenir ve tek tuşla geri alınabilir.</p>
       </li>
-      <li>
+      <li class="isikli belir">
         <h3><span class="tik" aria-hidden="true"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 8.4l2.6 2.6L12 5.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Erişim anahtarları şifreli</span></h3>
         <p>Mağaza erişim anahtarları şifreli saklanır; her mağaza yalnızca kendi verisini görür.</p>
       </li>
-      <li>
+      <li class="isikli belir">
         <h3><span class="tik" aria-hidden="true"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 8.4l2.6 2.6L12 5.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Kaldırınca veriler silinir</span></h3>
         <p>Uygulama kaldırıldığında mağazanızın verileri 30 gün sonra tamamen silinir.</p>
       </li>
     </ul>
-    <p class="mt-2">Yeni ürün otopilotunu otomatik gönderime alırsanız da yalnızca emin olunan öneriler yazılır; şüpheli öneriler onayınıza kalır.</p>
   </div>
 </section>
 
-<section class="bolum" id="abonelik" aria-labelledby="abonelik-baslik">
+<section class="yaprak" id="abonelik" aria-labelledby="abonelik-baslik">
   <div class="kap">
-    <div class="bolum-bas">
+    <div class="bolum-bas belir">
       <p class="ust-yazi"><span class="iz iz-9" aria-hidden="true"></span>Abonelik</p>
       <h2 id="abonelik-baslik">Ücretsiz analiz ve abonelik</h2>
     </div>
     <div class="bilgi-kutulari">
-      <div class="bilgi-kutusu"><h3>Ücretsiz analiz</h3><p>Mağazanızdaki sorunları görürsünüz; düzeltme gönderilemez.</p></div>
-      <div class="bilgi-kutusu"><h3>Ücretli paketler</h3><p>Düzeltmeleri mağazanıza göndermek için ürün sayınıza uygun bir paket seçersiniz. <a href="/paketler">Paketler</a></p></div>
-      <div class="bilgi-kutusu"><h3>Aboneliğiniz biterse</h3><p>Analiz ve geri alma açık kalır; mağazanıza yazma kapanır.</p></div>
+      <div class="bilgi-kutusu belir"><h3>Ücretsiz analiz</h3><p>Mağazanızdaki sorunları görürsünüz; düzeltme gönderilemez.</p></div>
+      <div class="bilgi-kutusu belir"><h3>Ücretli paketler</h3><p>Düzeltmeleri mağazanıza göndermek için ürün sayınıza uygun bir paket seçersiniz. <a href="/paketler">Paketler</a></p></div>
+      <div class="bilgi-kutusu belir"><h3>Aboneliğiniz biterse</h3><p>Analiz ve geri alma açık kalır; mağazanıza yazma kapanır.</p></div>
     </div>
   </div>
 </section>
 
-<section class="bolum bolum-koyu cagri" aria-labelledby="cagri-baslik">
-  <div class="kap cagri-ic">
-    <div class="cagri-metin">
-      <p class="ust-yazi"><span class="iz iz-9" aria-hidden="true"></span>Ücretsiz analiz</p>
-      <h2 id="cagri-baslik">Ücretsiz analizle başlayın</h2>
-      <p>seovisi'yi Ideasoft App Store'dan kurun, mağazanızdaki sorunları ücretsiz analizle görün. Düzeltmeleri mağazanıza göndermek ücretli paketlerle açılır.</p>
-      <div class="dugmeler">
-        <a class="dugme dugme-beyaz" href="/app-store">Ideasoft App Store'da incele <span class="ok" aria-hidden="true">→</span></a>
-        <a class="dugme dugme-cerceve" href="/paketler">Paketleri görün</a>
+<section class="cagri" aria-labelledby="cagri-baslik">
+  <div class="kap">
+    <div class="cagri-kart belir">
+      <div class="cagri-metin">
+        <p class="ust-yazi"><span class="iz iz-9" aria-hidden="true"></span>Ücretsiz analiz</p>
+        <h2 id="cagri-baslik">Ücretsiz analizle başlayın</h2>
+        <p>seovisi'yi Ideasoft App Store'dan kurun, mağazanızdaki sorunları ücretsiz analizle görün. Düzeltmeleri mağazanıza göndermek ücretli paketlerle açılır.</p>
+        <div class="dugmeler">
+          <a class="dugme dugme-parilti" href="/app-store">Ideasoft App Store'da incele <span class="ok" aria-hidden="true">→</span></a>
+          <a class="dugme dugme-cam" href="/paketler">Paketleri görün</a>
+        </div>
       </div>
+      <div class="cagri-kareler" aria-hidden="true"><i class="y"></i><i class="y"></i><i class="y"></i><i class="m"></i><i class="y"></i><i class="y"></i><i class="y"></i><i></i><i class="y"></i><i class="y"></i><i class="y"></i><i class="m"></i><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i><i></i><i class="y"></i><i class="y"></i><i class="y"></i><i class="m"></i><i class="y"></i><i class="y"></i><i class="y"></i><i></i></div>
     </div>
-    <svg class="cagri-izgara" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="0" y="0" width="12" height="12" rx="3" fill="#2BC071"/><rect x="18" y="0" width="12" height="12" rx="3" fill="#2BC071"/><rect x="36" y="0" width="12" height="12" rx="3" fill="#2BC071"/><rect x="0" y="18" width="12" height="12" rx="3" fill="#2BC071"/><rect x="18" y="18" width="12" height="12" rx="3" fill="#2BC071"/><rect x="36" y="18" width="12" height="12" rx="3" fill="#5A70FF"/><rect x="0" y="36" width="12" height="12" rx="3" fill="#2BC071"/><rect x="18" y="36" width="12" height="12" rx="3" fill="#3A3D47"/><rect x="36" y="36" width="12" height="12" rx="3" fill="#3A3D47"/></svg>
   </div>
 </section>
 </main>
@@ -181,7 +190,7 @@
   <div class="kap">
     <div class="alt-ic">
       <div class="alt-marka">
-        <img src="/marka/seovisi-logo.svg" alt="seovisi" width="132" height="35" loading="lazy">
+        <img src="/marka/seovisi-logo-koyu-zemin.svg" alt="seovisi" width="132" height="35" loading="lazy">
         <p>Ideasoft mağazaları için SEO ve katalog bakımı.</p>
       </div>
       <nav class="alt-menu" id="alt-menu" aria-label="Alt menü">
@@ -214,8 +223,10 @@
     </div>
     <div class="alt-son">
       <p>© 2026 seovisi</p>
+      <p>Google'ın önerdiği temel kuralları ürünlerinize eksiksiz uygular.</p>
     </div>
   </div>
+  <div class="alt-dev" aria-hidden="true"><img src="/marka/seovisi-logo-koyu-zemin.svg" alt="" width="1815" height="480" loading="lazy" decoding="async"></div>
 </footer>
 </body>
 </html>

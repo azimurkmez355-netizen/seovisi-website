@@ -12,7 +12,8 @@
 <link rel="icon" href="/marka/seovisi-isaret.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/marka/seovisi-ikon-180.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#14151B">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="seovisi">
 <meta property="og:locale" content="tr_TR">
@@ -33,161 +34,157 @@
 </head>
 <body>
 <a class="atla" href="#icerik">İçeriğe geç</a>
+<div class="ilerleme" aria-hidden="true"></div>
 <header class="ust">
-  <div class="kap ust-ic">
-    <a class="logo" href="/"><img src="/marka/seovisi-logo.svg" alt="seovisi ana sayfa" width="132" height="35"></a>
-    <a class="menu-dugme" href="#alt-menu" data-menu-dugme><svg class="menu-ikon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="0" y="0" width="12" height="12" rx="3"/><rect x="18" y="0" width="12" height="12" rx="3"/><rect x="36" y="0" width="12" height="12" rx="3"/><rect x="0" y="18" width="12" height="12" rx="3"/><rect x="18" y="18" width="12" height="12" rx="3"/><rect x="36" y="18" width="12" height="12" rx="3"/><rect x="0" y="36" width="12" height="12" rx="3"/><rect x="18" y="36" width="12" height="12" rx="3"/><rect x="36" y="36" width="12" height="12" rx="3"/></svg>Menü</a>
+  <div class="ust-kapsul">
+    <a class="logo" href="/"><img src="/marka/seovisi-logo-koyu-zemin.svg" alt="seovisi ana sayfa" width="124" height="33"></a>
     <nav class="ana-menu" id="ana-menu" aria-label="Ana menü">
       <ul>
-          <li><a href="/ozellikler" aria-current="page">Özellikler</a></li>
-          <li><a href="/nasil-calisir">Nasıl çalışır</a></li>
-          <li><a href="/paketler">Paketler</a></li>
-          <li><a href="/sss">SSS</a></li>
-          <li><a href="/iletisim">İletişim</a></li>
-        <li class="menu-cta"><a class="dugme dugme-birincil dugme-kucuk" href="/app-store">Ideasoft App Store'da incele</a></li>
+        <li><a href="/ozellikler" aria-current="page">Özellikler</a></li>
+        <li><a href="/nasil-calisir">Nasıl çalışır</a></li>
+        <li><a href="/paketler">Paketler</a></li>
+        <li><a href="/sss">SSS</a></li>
+        <li><a href="/iletisim">İletişim</a></li>
       </ul>
+      <a class="dugme dugme-parilti dugme-kucuk menu-cta" href="/app-store">Ideasoft App Store'da incele</a>
     </nav>
+    <a class="menu-dugme" href="#alt-menu" data-menu-dugme><span class="menu-ikon" aria-hidden="true"><i></i><i></i></span><span class="menu-yazi">Menü</span></a>
   </div>
 </header>
 <main id="icerik">
 <section class="sayfa-bas" aria-labelledby="sayfa-baslik">
+  <div class="kahraman-zemin" aria-hidden="true"><span class="parlama parlama-1"></span><span class="parlama parlama-2"></span><span class="parlama parlama-3"></span><span class="kafes"></span></div>
   <div class="kap">
-    <p class="ust-yazi"><span class="iz iz-3" aria-hidden="true"></span>Özellikler</p>
-    <h1 id="sayfa-baslik">seovisi'nin özellikleri</h1>
+    <p class="hap"><span class="hap-nokta" aria-hidden="true"></span>Özellikler</p>
+    <h1 id="sayfa-baslik">seovisi'nin <span class="parilti-yazi">özellikleri</span></h1>
     <p class="giris">Mağazanızın SEO durumunu görmekten eksikleri onayınızla düzeltmeye kadar, seovisi'nin bugün yapabildikleri.</p>
     <nav class="icindekiler" aria-label="Bu sayfada"><ul><li><a href="#genel-bakis">Genel bakış</a></li><li><a href="#urun-seo">Ürün SEO'su</a></li><li><a href="#kategori-analizi">Kategori analizi</a></li><li><a href="#aciklama-sablonu">Açıklama şablonları</a></li><li><a href="#otopilot">Yeni ürün otopilotu</a></li><li><a href="#uyarilar">Uyarılar</a></li><li><a href="#kopya-urunler">Kopya ürünler</a></li><li><a href="#gorseli-eksik">Görseli eksik ürünler</a></li><li><a href="#kirik-baglantilar">Kırık bağlantılar</a></li><li><a href="#rapor">Rapor ve tarama</a></li><li><a href="#yakinda">Yakında</a></li></ul></nav>
   </div>
 </section>
 
-<section class="bolum" id="genel-bakis" aria-labelledby="genel-bakis-baslik">
-  <div class="kap">
-    <div class="ozellik-satiri">
-      <div class="ozellik-metin">
-        <p class="ust-yazi"><span class="iz iz-1" aria-hidden="true"></span>01 / 10</p>
+<div class="yaprak">
+  <div class="kap ozellik-satirlari">
+    <section class="ozellik-satiri" id="genel-bakis" aria-labelledby="genel-bakis-baslik">
+      <div class="ozellik-metin belir">
+        <p class="no"><span class="iz iz-1" aria-hidden="true"></span>01 / 10</p>
         <h2 id="genel-bakis-baslik">Genel bakış</h2>
         <p>Mağazanızın durumunu tek ekranda görün. Neyin eksik olduğunu ve önce neyle başlamanız gerektiğini seovisi gösterir.</p>
         <ul class="tik-listesi"><li>Her ürünün SEO, görsel ve kategori durumu</li><li>Mağaza SEO puanı</li><li>Önem sırasına göre yapılacaklar</li></ul>
       </div>
-      <!-- YER-TUTUCU: ekran görüntüsü "genel bakış" — gerçek görüntü gelince gorseller/ekran/genel-bakis-800.webp ve genel-bakis-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
-<figure class="ekran" data-yer-tutucu="ekran-genel-bakis">
-  <img src="/gorseller/ekran/genel-bakis-1600.webp" srcset="/gorseller/ekran/genel-bakis-800.webp 800w, /gorseller/ekran/genel-bakis-1600.webp 1600w" sizes="(min-width: 1024px) 640px, calc(100vw - 2.5rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde genel bakış ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
+      <div class="belir">
+        <!-- YER-TUTUCU: ekran görüntüsü "genel bakış" — gerçek görüntü gelince gorseller/ekran/genel-bakis-800.webp ve genel-bakis-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
+<figure class="cerceve" data-yer-tutucu="ekran-genel-bakis">
+  <div class="cerceve-ust" aria-hidden="true"><span class="noktalar"><i></i><i></i><i></i></span><span class="cerceve-adres">app.seovisi.com.tr</span></div>
+  <img src="/gorseller/ekran/genel-bakis-1600.webp" srcset="/gorseller/ekran/genel-bakis-800.webp 800w, /gorseller/ekran/genel-bakis-1600.webp 1600w" sizes="(min-width: 1000px) 640px, calc(100vw - 3rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde genel bakış ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
 </figure>
-    </div>
-  </div>
-</section>
-
-<section class="bolum bolum-gri" id="urun-seo" aria-labelledby="urun-seo-baslik">
-  <div class="kap">
-    <div class="ozellik-satiri ozellik-satiri-ters">
-      <div class="ozellik-metin">
-        <p class="ust-yazi"><span class="iz iz-2" aria-hidden="true"></span>02 / 10</p>
+      </div>
+    </section>
+    <section class="ozellik-satiri ozellik-satiri-ters" id="urun-seo" aria-labelledby="urun-seo-baslik">
+      <div class="ozellik-metin belir">
+        <p class="no"><span class="iz iz-2" aria-hidden="true"></span>02 / 10</p>
         <h2 id="urun-seo-baslik">Ürün SEO'su</h2>
         <p>Sayfa başlığı, meta açıklama ya da ürün açıklaması eksik olan ürünler için seovisi bu bilgileri hazırlar. Siz kontrol eder, uygun gördüklerinizi gönderirsiniz.</p>
         <ul class="tik-listesi"><li>Eksik ürünlere başlık, meta açıklama ve ürün açıklaması</li><li>Göndermeden önce son kontrol sizde</li><li>Google'ın önerdiği temel kurallar ürünlerinize eksiksiz uygulanır</li></ul>
       </div>
-      <!-- YER-TUTUCU: ekran görüntüsü "ürün SEO'su" — gerçek görüntü gelince gorseller/ekran/urun-seo-800.webp ve urun-seo-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
-<figure class="ekran" data-yer-tutucu="ekran-urun-seo">
-  <img src="/gorseller/ekran/urun-seo-1600.webp" srcset="/gorseller/ekran/urun-seo-800.webp 800w, /gorseller/ekran/urun-seo-1600.webp 1600w" sizes="(min-width: 1024px) 640px, calc(100vw - 2.5rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde ürün SEO'su ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
+      <div class="belir">
+        <!-- YER-TUTUCU: ekran görüntüsü "ürün SEO'su" — gerçek görüntü gelince gorseller/ekran/urun-seo-800.webp ve urun-seo-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
+<figure class="cerceve" data-yer-tutucu="ekran-urun-seo">
+  <div class="cerceve-ust" aria-hidden="true"><span class="noktalar"><i></i><i></i><i></i></span><span class="cerceve-adres">app.seovisi.com.tr</span></div>
+  <img src="/gorseller/ekran/urun-seo-1600.webp" srcset="/gorseller/ekran/urun-seo-800.webp 800w, /gorseller/ekran/urun-seo-1600.webp 1600w" sizes="(min-width: 1000px) 640px, calc(100vw - 3rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde ürün SEO'su ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
 </figure>
-    </div>
-  </div>
-</section>
-
-<section class="bolum" id="kategori-analizi" aria-labelledby="kategori-analizi-baslik">
-  <div class="kap">
-    <div class="ozellik-satiri">
-      <div class="ozellik-metin">
-        <p class="ust-yazi"><span class="iz iz-3" aria-hidden="true"></span>03 / 10</p>
+      </div>
+    </section>
+    <section class="ozellik-satiri" id="kategori-analizi" aria-labelledby="kategori-analizi-baslik">
+      <div class="ozellik-metin belir">
+        <p class="no"><span class="iz iz-3" aria-hidden="true"></span>03 / 10</p>
         <h2 id="kategori-analizi-baslik">Kategori analizi</h2>
         <p>Yanlış kategorideki ve kategorisiz ürünleri bulur, açılması önerilen yeni alt kategorileri gösterir. Düzeltme tek tıkla yapılır.</p>
         <ul class="tik-listesi"><li>Yanlış kategorideki ürünler</li><li>Kategorisiz ürünler</li><li>Açılması önerilen yeni alt kategoriler</li><li>Mağazanızın kendi ürünlerinden öğrenir; her sektörde çalışır</li></ul>
       </div>
-      <!-- YER-TUTUCU: ekran görüntüsü "kategori analizi" — gerçek görüntü gelince gorseller/ekran/kategori-analizi-800.webp ve kategori-analizi-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
-<figure class="ekran" data-yer-tutucu="ekran-kategori-analizi">
-  <img src="/gorseller/ekran/kategori-analizi-1600.webp" srcset="/gorseller/ekran/kategori-analizi-800.webp 800w, /gorseller/ekran/kategori-analizi-1600.webp 1600w" sizes="(min-width: 1024px) 640px, calc(100vw - 2.5rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde kategori analizi ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
+      <div class="belir">
+        <!-- YER-TUTUCU: ekran görüntüsü "kategori analizi" — gerçek görüntü gelince gorseller/ekran/kategori-analizi-800.webp ve kategori-analizi-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
+<figure class="cerceve" data-yer-tutucu="ekran-kategori-analizi">
+  <div class="cerceve-ust" aria-hidden="true"><span class="noktalar"><i></i><i></i><i></i></span><span class="cerceve-adres">app.seovisi.com.tr</span></div>
+  <img src="/gorseller/ekran/kategori-analizi-1600.webp" srcset="/gorseller/ekran/kategori-analizi-800.webp 800w, /gorseller/ekran/kategori-analizi-1600.webp 1600w" sizes="(min-width: 1000px) 640px, calc(100vw - 3rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde kategori analizi ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
 </figure>
-    </div>
-  </div>
-</section>
-
-<section class="bolum bolum-gri" id="aciklama-sablonu" aria-labelledby="aciklama-sablonu-baslik">
-  <div class="kap">
-    <div class="ozellik-satiri ozellik-satiri-ters">
-      <div class="ozellik-metin">
-        <p class="ust-yazi"><span class="iz iz-4" aria-hidden="true"></span>04 / 10</p>
+      </div>
+    </section>
+    <section class="ozellik-satiri ozellik-satiri-ters" id="aciklama-sablonu" aria-labelledby="aciklama-sablonu-baslik">
+      <div class="ozellik-metin belir">
+        <p class="no"><span class="iz iz-4" aria-hidden="true"></span>04 / 10</p>
         <h2 id="aciklama-sablonu-baslik">Açıklama şablonları</h2>
         <p>Ürün açıklamalarının nasıl görüneceğini siz belirlersiniz. Açıklamalar mağazanızın kendi görünümünde olur.</p>
         <ul class="tik-listesi"><li>4 görünüm: sade, bantlı, çizgili, kutulu</li><li>Ana renk: sitenizin tema rengi önerilir</li><li>Bölümleri açma, kapama ve sıralama</li><li>Kapanış metni</li><li>Canlı önizleme ve SEO puanı tahmini</li><li>Eski açıklamaları yeni şablona toplu ve yedekli geçirme</li></ul>
       </div>
-      <!-- YER-TUTUCU: ekran görüntüsü "açıklama şablonu ve canlı önizleme" — gerçek görüntü gelince gorseller/ekran/aciklama-sablonu-800.webp ve aciklama-sablonu-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
-<figure class="ekran" data-yer-tutucu="ekran-aciklama-sablonu">
-  <img src="/gorseller/ekran/aciklama-sablonu-1600.webp" srcset="/gorseller/ekran/aciklama-sablonu-800.webp 800w, /gorseller/ekran/aciklama-sablonu-1600.webp 1600w" sizes="(min-width: 1024px) 640px, calc(100vw - 2.5rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde açıklama şablonu ve canlı önizleme ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
+      <div class="belir">
+        <!-- YER-TUTUCU: ekran görüntüsü "açıklama şablonu ve canlı önizleme" — gerçek görüntü gelince gorseller/ekran/aciklama-sablonu-800.webp ve aciklama-sablonu-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
+<figure class="cerceve" data-yer-tutucu="ekran-aciklama-sablonu">
+  <div class="cerceve-ust" aria-hidden="true"><span class="noktalar"><i></i><i></i><i></i></span><span class="cerceve-adres">app.seovisi.com.tr</span></div>
+  <img src="/gorseller/ekran/aciklama-sablonu-1600.webp" srcset="/gorseller/ekran/aciklama-sablonu-800.webp 800w, /gorseller/ekran/aciklama-sablonu-1600.webp 1600w" sizes="(min-width: 1000px) 640px, calc(100vw - 3rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde açıklama şablonu ve canlı önizleme ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
 </figure>
-    </div>
-  </div>
-</section>
-
-<section class="bolum" id="otopilot" aria-labelledby="otopilot-baslik">
-  <div class="kap">
-    <div class="ozellik-satiri">
-      <div class="ozellik-metin">
-        <p class="ust-yazi"><span class="iz iz-5" aria-hidden="true"></span>05 / 10</p>
+      </div>
+    </section>
+    <section class="ozellik-satiri" id="otopilot" aria-labelledby="otopilot-baslik">
+      <div class="ozellik-metin belir">
+        <p class="no"><span class="iz iz-5" aria-hidden="true"></span>05 / 10</p>
         <h2 id="otopilot-baslik">Yeni ürün otopilotu</h2>
         <p>Mağazanıza yeni ürün eklendiğinde seovisi bunu fark eder; ürünün SEO'sunu ve kategorisini hazırlar.</p>
         <ul class="tik-listesi"><li>Onaylı gönderim: öneriler onayınızı bekler</li><li>Otomatik gönderim: yalnızca emin olunan öneriler yazılır</li><li>Şüpheli öneriler her durumda onayınıza kalır</li></ul>
       </div>
-      <!-- YER-TUTUCU: ekran görüntüsü "yeni ürün otopilotu" — gerçek görüntü gelince gorseller/ekran/otopilot-800.webp ve otopilot-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
-<figure class="ekran" data-yer-tutucu="ekran-otopilot">
-  <img src="/gorseller/ekran/otopilot-1600.webp" srcset="/gorseller/ekran/otopilot-800.webp 800w, /gorseller/ekran/otopilot-1600.webp 1600w" sizes="(min-width: 1024px) 640px, calc(100vw - 2.5rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde yeni ürün otopilotu ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
+      <div class="belir">
+        <!-- YER-TUTUCU: ekran görüntüsü "yeni ürün otopilotu" — gerçek görüntü gelince gorseller/ekran/otopilot-800.webp ve otopilot-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
+<figure class="cerceve" data-yer-tutucu="ekran-otopilot">
+  <div class="cerceve-ust" aria-hidden="true"><span class="noktalar"><i></i><i></i><i></i></span><span class="cerceve-adres">app.seovisi.com.tr</span></div>
+  <img src="/gorseller/ekran/otopilot-1600.webp" srcset="/gorseller/ekran/otopilot-800.webp 800w, /gorseller/ekran/otopilot-1600.webp 1600w" sizes="(min-width: 1000px) 640px, calc(100vw - 3rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde yeni ürün otopilotu ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
 </figure>
-    </div>
-  </div>
-</section>
-
-<section class="bolum bolum-gri" id="uyarilar" aria-labelledby="uyarilar-baslik">
-  <div class="kap">
-    <div class="ozellik-satiri ozellik-satiri-ters">
-      <div class="ozellik-metin">
-        <p class="ust-yazi"><span class="iz iz-6" aria-hidden="true"></span>06 / 10</p>
+      </div>
+    </section>
+    <section class="ozellik-satiri ozellik-satiri-ters" id="uyarilar" aria-labelledby="uyarilar-baslik">
+      <div class="ozellik-metin belir">
+        <p class="no"><span class="iz iz-6" aria-hidden="true"></span>06 / 10</p>
         <h2 id="uyarilar-baslik">Uyarılar</h2>
         <p>Gözden kaçabilecek fiyat ve stok hataları için uyarı alırsınız.</p>
         <ul class="tik-listesi"><li>Fiyatı 0 olan ürün</li><li>Hatalı indirim</li><li>Alış fiyatının altında satış</li><li>Kategorisine göre aşırı fiyat</li><li>Yayında ama stokta olmayan ürün</li></ul>
       </div>
-      <!-- YER-TUTUCU: ekran görüntüsü "uyarılar" — gerçek görüntü gelince gorseller/ekran/uyarilar-800.webp ve uyarilar-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
-<figure class="ekran" data-yer-tutucu="ekran-uyarilar">
-  <img src="/gorseller/ekran/uyarilar-1600.webp" srcset="/gorseller/ekran/uyarilar-800.webp 800w, /gorseller/ekran/uyarilar-1600.webp 1600w" sizes="(min-width: 1024px) 640px, calc(100vw - 2.5rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde uyarılar ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
+      <div class="belir">
+        <!-- YER-TUTUCU: ekran görüntüsü "uyarılar" — gerçek görüntü gelince gorseller/ekran/uyarilar-800.webp ve uyarilar-1600.webp dosyalarını değiştirin, alt metindeki "Yer tutucu" ifadesini kaldırın. -->
+<figure class="cerceve" data-yer-tutucu="ekran-uyarilar">
+  <div class="cerceve-ust" aria-hidden="true"><span class="noktalar"><i></i><i></i><i></i></span><span class="cerceve-adres">app.seovisi.com.tr</span></div>
+  <img src="/gorseller/ekran/uyarilar-1600.webp" srcset="/gorseller/ekran/uyarilar-800.webp 800w, /gorseller/ekran/uyarilar-1600.webp 1600w" sizes="(min-width: 1000px) 640px, calc(100vw - 3rem)" width="1600" height="1000" alt="Yer tutucu: seovisi panelinde uyarılar ekranının görüntüsü eklenecek" loading="lazy" decoding="async">
 </figure>
-    </div>
+      </div>
+    </section>
   </div>
-</section>
+</div>
 
 <section class="bolum" id="diger-kontroller" aria-labelledby="diger-kontroller-baslik">
   <div class="kap">
-    <div class="bolum-bas">
+    <div class="bolum-bas belir">
+      <p class="ust-yazi"><span class="iz iz-7" aria-hidden="true"></span>Katalog</p>
       <h2 id="diger-kontroller-baslik">Katalog kontrolleri ve raporlar</h2>
       <p>Ürün SEO'sunun ötesinde, kataloğunuzdaki tekrarları, eksik görselleri ve kırık bağlantıları da takip eder.</p>
     </div>
     <ul class="kucuk-ozellikler">
-      <li id="kopya-urunler">
-        <p class="ust-yazi"><span class="iz iz-7" aria-hidden="true"></span>07 / 10</p>
+      <li id="kopya-urunler" class="isikli belir">
+        <p class="no"><span class="iz iz-7" aria-hidden="true"></span>07 / 10</p>
         <h3>Kopya ürün tespiti</h3>
         <p>Aynı ürünün birden fazla kaydını bulur.</p>
         <ul class="tik-listesi"><li>Aynı stok kodu</li><li>Aynı barkod</li><li>Aynı ad</li><li>Aynı sayfa başlığı</li><li>Aynı meta açıklama</li></ul>
       </li>
-      <li id="gorseli-eksik">
-        <p class="ust-yazi"><span class="iz iz-8" aria-hidden="true"></span>08 / 10</p>
+      <li id="gorseli-eksik" class="isikli belir">
+        <p class="no"><span class="iz iz-8" aria-hidden="true"></span>08 / 10</p>
         <h3>Görseli eksik ürünler</h3>
         <p>Görseli olmayan ürünleri tek bir listede görürsünüz.</p>
         
       </li>
-      <li id="kirik-baglantilar">
-        <p class="ust-yazi"><span class="iz iz-9" aria-hidden="true"></span>09 / 10</p>
+      <li id="kirik-baglantilar" class="isikli belir">
+        <p class="no"><span class="iz iz-9" aria-hidden="true"></span>09 / 10</p>
         <h3>Kırık bağlantı ve 404 taraması</h3>
         <p>Sitenizin herkese açık sayfaları taranır; kırık bağlantılar ve 404 hataları listelenir.</p>
         
       </li>
-      <li id="rapor">
-        <p class="ust-yazi"><span class="iz iz-9" aria-hidden="true"></span>10 / 10</p>
+      <li id="rapor" class="isikli belir">
+        <p class="no"><span class="iz iz-9" aria-hidden="true"></span>10 / 10</p>
         <h3>Aylık rapor ve haftalık tarama</h3>
         <p>Aylık rapor panelde görüntülenir; yazdırabilir ya da PDF olarak kaydedebilirsiniz. Ücretli paketlerde mağazanız her hafta otomatik olarak taranır.</p>
         
@@ -196,33 +193,35 @@
   </div>
 </section>
 
-<section class="bolum bolum-gri" id="yakinda" aria-labelledby="yakinda-baslik">
+<section class="yaprak yaprak-gri" id="yakinda" aria-labelledby="yakinda-baslik">
   <div class="kap">
-    <div class="bolum-bas">
+    <div class="bolum-bas belir">
       <p class="ust-yazi"><span class="iz iz-0" aria-hidden="true"></span>Hazırlanıyor</p>
       <h2 id="yakinda-baslik">Yakında</h2>
       <p>Aşağıdaki özellikler henüz hazır değil; hazır olduklarında bu sayfada yer alacak.</p>
     </div>
     <ul class="yakinda-listesi">
-      <li><span class="rozet rozet-yakinda">Yakında</span><span><strong>Yapay zekâ ile ürüne özel açıklama</strong><span>Marka sesi seçimiyle birlikte.</span></span></li>
-      <li><span class="rozet rozet-yakinda">Yakında</span><span><strong>Özellik doldurma</strong><span>Renk, malzeme, beden gibi bilgileri ürün adından alıp ek alanlara yazma.</span></span></li>
-      <li><span class="rozet rozet-yakinda">Yakında</span><span><strong>Aylık raporun e-postayla gönderimi</strong><span>Bugün aylık rapor panelde görüntülenir ve yazdırılabilir.</span></span></li>
+      <li class="belir"><span class="rozet rozet-yakinda">Yakında</span><span><strong>Yapay zekâ ile ürüne özel açıklama</strong><span>Marka sesi seçimiyle birlikte.</span></span></li>
+      <li class="belir"><span class="rozet rozet-yakinda">Yakında</span><span><strong>Özellik doldurma</strong><span>Renk, malzeme, beden gibi bilgileri ürün adından alıp ek alanlara yazma.</span></span></li>
+      <li class="belir"><span class="rozet rozet-yakinda">Yakında</span><span><strong>Aylık raporun e-postayla gönderimi</strong><span>Bugün aylık rapor panelde görüntülenir ve yazdırılabilir.</span></span></li>
     </ul>
   </div>
 </section>
 
-<section class="bolum bolum-koyu cagri" aria-labelledby="cagri-baslik">
-  <div class="kap cagri-ic">
-    <div class="cagri-metin">
-      <p class="ust-yazi"><span class="iz iz-9" aria-hidden="true"></span>Ücretsiz analiz</p>
-      <h2 id="cagri-baslik">Ücretsiz analizle başlayın</h2>
-      <p>seovisi'yi Ideasoft App Store'dan kurun, mağazanızdaki sorunları ücretsiz analizle görün. Düzeltmeleri mağazanıza göndermek ücretli paketlerle açılır.</p>
-      <div class="dugmeler">
-        <a class="dugme dugme-beyaz" href="/app-store">Ideasoft App Store'da incele <span class="ok" aria-hidden="true">→</span></a>
-        <a class="dugme dugme-cerceve" href="/paketler">Paketleri görün</a>
+<section class="cagri" aria-labelledby="cagri-baslik">
+  <div class="kap">
+    <div class="cagri-kart belir">
+      <div class="cagri-metin">
+        <p class="ust-yazi"><span class="iz iz-9" aria-hidden="true"></span>Ücretsiz analiz</p>
+        <h2 id="cagri-baslik">Ücretsiz analizle başlayın</h2>
+        <p>seovisi'yi Ideasoft App Store'dan kurun, mağazanızdaki sorunları ücretsiz analizle görün. Düzeltmeleri mağazanıza göndermek ücretli paketlerle açılır.</p>
+        <div class="dugmeler">
+          <a class="dugme dugme-parilti" href="/app-store">Ideasoft App Store'da incele <span class="ok" aria-hidden="true">→</span></a>
+          <a class="dugme dugme-cam" href="/paketler">Paketleri görün</a>
+        </div>
       </div>
+      <div class="cagri-kareler" aria-hidden="true"><i class="y"></i><i class="y"></i><i class="y"></i><i class="m"></i><i class="y"></i><i class="y"></i><i class="y"></i><i></i><i class="y"></i><i class="y"></i><i class="y"></i><i class="m"></i><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i><i></i><i class="y"></i><i class="y"></i><i class="y"></i><i class="m"></i><i class="y"></i><i class="y"></i><i class="y"></i><i></i></div>
     </div>
-    <svg class="cagri-izgara" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="0" y="0" width="12" height="12" rx="3" fill="#2BC071"/><rect x="18" y="0" width="12" height="12" rx="3" fill="#2BC071"/><rect x="36" y="0" width="12" height="12" rx="3" fill="#2BC071"/><rect x="0" y="18" width="12" height="12" rx="3" fill="#2BC071"/><rect x="18" y="18" width="12" height="12" rx="3" fill="#2BC071"/><rect x="36" y="18" width="12" height="12" rx="3" fill="#5A70FF"/><rect x="0" y="36" width="12" height="12" rx="3" fill="#2BC071"/><rect x="18" y="36" width="12" height="12" rx="3" fill="#3A3D47"/><rect x="36" y="36" width="12" height="12" rx="3" fill="#3A3D47"/></svg>
   </div>
 </section>
 </main>
@@ -230,7 +229,7 @@
   <div class="kap">
     <div class="alt-ic">
       <div class="alt-marka">
-        <img src="/marka/seovisi-logo.svg" alt="seovisi" width="132" height="35" loading="lazy">
+        <img src="/marka/seovisi-logo-koyu-zemin.svg" alt="seovisi" width="132" height="35" loading="lazy">
         <p>Ideasoft mağazaları için SEO ve katalog bakımı.</p>
       </div>
       <nav class="alt-menu" id="alt-menu" aria-label="Alt menü">
@@ -263,8 +262,10 @@
     </div>
     <div class="alt-son">
       <p>© 2026 seovisi</p>
+      <p>Google'ın önerdiği temel kuralları ürünlerinize eksiksiz uygular.</p>
     </div>
   </div>
+  <div class="alt-dev" aria-hidden="true"><img src="/marka/seovisi-logo-koyu-zemin.svg" alt="" width="1815" height="480" loading="lazy" decoding="async"></div>
 </footer>
 </body>
 </html>

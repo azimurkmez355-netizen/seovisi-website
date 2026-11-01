@@ -13,7 +13,8 @@
 <link rel="icon" href="/marka/seovisi-isaret.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/marka/seovisi-ikon-180.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#14151B">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="seovisi">
 <meta property="og:locale" content="tr_TR">
@@ -34,32 +35,34 @@
 </head>
 <body>
 <a class="atla" href="#icerik">İçeriğe geç</a>
+<div class="ilerleme" aria-hidden="true"></div>
 <header class="ust">
-  <div class="kap ust-ic">
-    <a class="logo" href="/"><img src="/marka/seovisi-logo.svg" alt="seovisi ana sayfa" width="132" height="35"></a>
-    <a class="menu-dugme" href="#alt-menu" data-menu-dugme><svg class="menu-ikon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="0" y="0" width="12" height="12" rx="3"/><rect x="18" y="0" width="12" height="12" rx="3"/><rect x="36" y="0" width="12" height="12" rx="3"/><rect x="0" y="18" width="12" height="12" rx="3"/><rect x="18" y="18" width="12" height="12" rx="3"/><rect x="36" y="18" width="12" height="12" rx="3"/><rect x="0" y="36" width="12" height="12" rx="3"/><rect x="18" y="36" width="12" height="12" rx="3"/><rect x="36" y="36" width="12" height="12" rx="3"/></svg>Menü</a>
+  <div class="ust-kapsul">
+    <a class="logo" href="/"><img src="/marka/seovisi-logo-koyu-zemin.svg" alt="seovisi ana sayfa" width="124" height="33"></a>
     <nav class="ana-menu" id="ana-menu" aria-label="Ana menü">
       <ul>
-          <li><a href="/ozellikler">Özellikler</a></li>
-          <li><a href="/nasil-calisir">Nasıl çalışır</a></li>
-          <li><a href="/paketler">Paketler</a></li>
-          <li><a href="/sss">SSS</a></li>
-          <li><a href="/iletisim">İletişim</a></li>
-        <li class="menu-cta"><a class="dugme dugme-birincil dugme-kucuk" href="/app-store">Ideasoft App Store'da incele</a></li>
+        <li><a href="/ozellikler">Özellikler</a></li>
+        <li><a href="/nasil-calisir">Nasıl çalışır</a></li>
+        <li><a href="/paketler">Paketler</a></li>
+        <li><a href="/sss">SSS</a></li>
+        <li><a href="/iletisim">İletişim</a></li>
       </ul>
+      <a class="dugme dugme-parilti dugme-kucuk menu-cta" href="/app-store">Ideasoft App Store'da incele</a>
     </nav>
+    <a class="menu-dugme" href="#alt-menu" data-menu-dugme><span class="menu-ikon" aria-hidden="true"><i></i><i></i></span><span class="menu-yazi">Menü</span></a>
   </div>
 </header>
 <main id="icerik">
 <section class="sayfa-bas" aria-labelledby="sayfa-baslik">
+  <div class="kahraman-zemin" aria-hidden="true"><span class="parlama parlama-1"></span><span class="parlama parlama-2"></span><span class="parlama parlama-3"></span><span class="kafes"></span></div>
   <div class="kap">
-    <p class="ust-yazi"><span class="iz iz-1" aria-hidden="true"></span>Yasal</p>
+    <p class="hap"><span class="hap-nokta" aria-hidden="true"></span>Yasal</p>
     <h1 id="sayfa-baslik">Kullanım koşulları</h1>
     <p class="giris">Bu sayfa hazırlanma aşamasındadır.</p>
   </div>
 </section>
 
-<section class="bolum" aria-label="Metin">
+<section class="yaprak" aria-label="Metin">
   <div class="kap">
     <!-- YER-TUTUCU: hukuki metin. Avukat metni gelince taslak uyarısını kaldırın,
          <meta name="robots" content="noindex, follow"> satırını silin ve sayfayı sitemap.xml'e ekleyin. -->
@@ -107,12 +110,13 @@
     </div>
   </div>
 </section>
+<div class="alt-bosluk" aria-hidden="true"></div>
 </main>
 <footer class="alt">
   <div class="kap">
     <div class="alt-ic">
       <div class="alt-marka">
-        <img src="/marka/seovisi-logo.svg" alt="seovisi" width="132" height="35" loading="lazy">
+        <img src="/marka/seovisi-logo-koyu-zemin.svg" alt="seovisi" width="132" height="35" loading="lazy">
         <p>Ideasoft mağazaları için SEO ve katalog bakımı.</p>
       </div>
       <nav class="alt-menu" id="alt-menu" aria-label="Alt menü">
@@ -145,8 +149,10 @@
     </div>
     <div class="alt-son">
       <p>© 2026 seovisi</p>
+      <p>Google'ın önerdiği temel kuralları ürünlerinize eksiksiz uygular.</p>
     </div>
   </div>
+  <div class="alt-dev" aria-hidden="true"><img src="/marka/seovisi-logo-koyu-zemin.svg" alt="" width="1815" height="480" loading="lazy" decoding="async"></div>
 </footer>
 </body>
 </html>
