@@ -9,11 +9,11 @@ güncellenir ve bu listeden düşer. (Teknik not: kodda her yer tutucunun yanın
 | # | Ne? | Nerede görünüyor? | Hangi dosyada değişecek? | Durum |
 |---|---|---|---|---|
 | 1 | **Ideasoft App Store adresi** | Bütün "Ideasoft App Store'da incele" düğmeleri | Yalnızca `site/_redirects` (tek satır) | Bekliyor. Düğmeler şimdilik "sayfa hazırlanıyor" bilgisine gidiyor |
-| 2 | **E-posta adresi** | İletişim sayfası | `site/iletisim.html` | Bekliyor |
-| 3 | **WhatsApp numarası** | İletişim sayfası | `site/iletisim.html` | Bekliyor |
-| 4 | **Şirket bilgileri** (unvan, adres, vergi dairesi ve no, MERSİS no, e-posta, telefon) | 3 hukuki sayfa | `site/kullanim-kosullari.html`, `site/gizlilik-ve-kvkk.html`, `site/cerez-politikasi.html` | Bekliyor |
+| 2 | **E-posta adresi** | İletişim sayfası, hukuki sayfalar, yapısal veri | `site/iletisim.html` | **Tamam:** azimurkmez355@gmail.com |
+| 3 | **WhatsApp / telefon** | İletişim sayfası, hukuki sayfalar, yapısal veri | `site/iletisim.html` | **Tamam:** +90 535 553 40 92 (WhatsApp düğmesi de bu numaraya gidiyor) |
+| 4 | **Şirket bilgileri** (unvan, adres, vergi dairesi ve no, MERSİS no) | 3 hukuki sayfa | `site/kullanim-kosullari.html`, `site/gizlilik-ve-kvkk.html`, `site/cerez-politikasi.html` | Bekliyor. E-posta ve telefon eklendi |
 | 5 | **Hukuki metinler** (avukat yazacak) | Kullanım koşulları · Gizlilik politikası ve KVKK aydınlatma metni · Çerez politikası | Aynı 3 dosya | Bekliyor. Sayfalarda "Taslak" uyarısı var ve arama motorlarına kapalılar |
-| 6 | **Panel ekran görüntüleri** (aşağıdaki liste) | Ana sayfa, Özellikler, Nasıl çalışır | `site/gorseller/ekran/` | Bekliyor. Yerlerinde açıkça "YER TUTUCU" yazan görseller var |
+| 6 | **Panel ekran görüntüleri** (aşağıdaki liste) | Ana sayfa, Özellikler, Nasıl çalışır | `site/gorseller/ekran/` | **8'den 4'ü geldi.** Kalan 4 ekranın yerinde açıkça "YER TUTUCU" yazan görseller var |
 | 7 | **Örnek sonuçlar** (önce / sonra ölçümü) | Ana sayfanın "Örnek sonuçlar" bölümü | `site/index.html` (`ornek-sonuclar` bölümü) | Bekliyor. Yayından önce ya doldurun ya da gizleyin (aşağıya bakın) |
 | 8 | **Fiyatlar** (kesinleşince, isterseniz) | Paketler sayfası | `site/paketler.html` içindeki işaretli "PAKET BİLGİLERİ" bloğu | Şimdilik "Fiyatlar ve satın alma Ideasoft App Store'da" yazıyor |
 | — | Logo ve ikonlar | Her sayfa | `site/marka/` | **Tamam:** gönderdiğiniz logo paketinden eklendi |
@@ -24,22 +24,24 @@ güncellenir ve bu listeden düşer. (Teknik not: kodda her yer tutucunun yanın
 Önerilen boyut **1600 × 1000 piksel** (yatay, 16:10). PNG olarak gönderebilirsiniz; Claude bunları
 hızlı yüklenen WebP biçimine çevirip iki boyutta yerleştirir.
 
-| Ekran | Dosya adı | Kullanıldığı sayfalar |
-|---|---|---|
-| Genel bakış (ürünlerin SEO / görsel / kategori durumu, mağaza SEO puanı, yapılacaklar) | `genel-bakis` | Özellikler, Nasıl çalışır |
-| Ürün SEO'su (hazırlanan başlık, meta açıklama ve açıklamanın kontrol edilip gönderildiği ekran) | `urun-seo` | Özellikler |
-| Kategori analizi (yanlış / kategorisiz ürünler, önerilen alt kategoriler) | `kategori-analizi` | Ana sayfa, Özellikler |
-| Açıklama şablonu (görünüm seçimi ve canlı önizleme) | `aciklama-sablonu` | Ana sayfa, Özellikler |
-| Yeni ürün otopilotu (onaylı / otomatik gönderim ayarı) | `otopilot` | Ana sayfa, Özellikler |
-| Uyarılar (fiyat, indirim, stok uyarıları listesi) | `uyarilar` | Özellikler |
-| Kurulum sihirbazı (4 adım) | `kurulum-sihirbazi` | Nasıl çalışır |
-| Değişiklik geçmişi ve tek tuşla geri alma | `geri-alma` | Ana sayfa |
+| Ekran | Dosya adı | Kullanıldığı sayfalar | Durum |
+|---|---|---|---|
+| Genel bakış | `genel-bakis` | Ana sayfa (panel turu), Özellikler, Nasıl çalışır | **Tamam** |
+| Uyarılar | `uyarilar` | Ana sayfa (panel turu), Özellikler | **Tamam** |
+| Kategori analizi | `kategori-analizi` | Ana sayfa (panel turu), Özellikler | **Tamam** |
+| Yeni ürün otopilotu | `otopilot` | Ana sayfa (panel turu), Özellikler | **Tamam** |
+| Ürün SEO'su (hazırlanan başlık, meta açıklama ve açıklamanın kontrol edilip gönderildiği ekran) | `urun-seo` | Ana sayfa (panel turu), Özellikler | Bekliyor |
+| Açıklama şablonu (görünüm seçimi ve canlı önizleme) | `aciklama-sablonu` | Ana sayfa (panel turu), Özellikler | Bekliyor |
+| Kurulum sihirbazı (4 adım) | `kurulum-sihirbazi` | Nasıl çalışır | Bekliyor |
+| Değişiklik geçmişi ve tek tuşla geri alma | `geri-alma` | Şu an kullanılmıyor (isteğe bağlı) | Bekliyor |
 
-İsteğe bağlı (şu an sitede yerleri yok, gelirse eklenebilir): kopya ürünler, kırık bağlantılar,
-aylık rapor, görseli eksik ürünler.
+Gönderdiğiniz **Görseller** ekranında henüz tarama yapılmadığı için tablo boş görünüyor; bu yüzden
+şimdilik kullanmadım. Tarama sonrası bir görüntüsünü gönderirseniz ekleriz. Aylık rapor da isteğe
+bağlı olarak eklenebilir.
 
-Ekran görüntülerinde gerçek müşteri ya da mağaza bilgisi görünmemesine dikkat edin (örnek / test
-mağazası kullanın).
+**Not:** Gönderdiğiniz görüntülerde **Ustapazar** mağazasının adı, ürün adları ve sayıları görünüyor.
+Bu mağaza sizinse sorun yok; başkasınınsa izin alın ya da söyleyin, mağaza adını ve ürünleri
+bulanıklaştırayım. Görüntülerin sağındaki boş alan ve ekran alıntısı aracı bildirimi kırpıldı.
 
 ### Örnek sonuçlar bölümünü gizlemek
 
@@ -68,7 +70,7 @@ sayfa `site/sitemap.xml` listesine eklenir. Claude bunları birlikte yapar.
 - [ ] App Store adresi (1) gelmeden yayına çıkılacaksa düğmeler "sayfa hazırlanıyor" bilgisine gider; bu bilinçli bir geçici durumdur
 - [ ] Örnek sonuçlar (7) dolduruldu ya da gizlendi
 - [ ] Hukuki metinler (4, 5) eklendi ya da taslak hâliyle yayına çıkılması kabul edildi
-- [ ] İletişim bilgileri (2, 3) eklendi
+- [x] İletişim bilgileri (2, 3) eklendi
 
 ## 3. Sizin kontrol etmeniz gereken kararlar
 

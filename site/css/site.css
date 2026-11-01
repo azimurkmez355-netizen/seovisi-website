@@ -1704,6 +1704,17 @@ strong, b { font-weight: 700; }
 .iletisim-ikon svg { width: 26px; height: 26px; }
 .iletisim-karti h3 { font-size: 1.5rem; font-weight: 800; }
 .iletisim-karti p { color: var(--soluk); }
+.iletisim-baglanti {
+  display: inline-block;
+  color: var(--yazi);
+  font-size: clamp(1.15rem, 1rem + .6vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.iletisim-baglanti:hover { color: var(--mavi); text-decoration: underline; }
+.iletisim-karti .dugmeler { margin-top: 1rem; }
 
 /* ---------- 22. Hukuki sayfalar ---------- */
 .taslak-uyari {
