@@ -13,7 +13,7 @@ güncellenir ve bu listeden düşer. (Teknik not: kodda her yer tutucunun yanın
 | 3 | **WhatsApp / telefon** | İletişim sayfası, hukuki sayfalar, yapısal veri | `site/iletisim.html` | **Tamam:** +90 535 553 40 92 (WhatsApp düğmesi de bu numaraya gidiyor; numarada WhatsApp açık) |
 | 4 | **Şirket bilgileri** (unvan, adres, vergi dairesi ve no, MERSİS no) | 3 hukuki sayfa | `site/kullanim-kosullari.html`, `site/gizlilik-ve-kvkk.html`, `site/cerez-politikasi.html` | Bekliyor. E-posta ve telefon eklendi |
 | 5 | **Hukuki metinler** (avukat yazacak) | Kullanım koşulları · Gizlilik politikası ve KVKK aydınlatma metni · Çerez politikası | Aynı 3 dosya | Bekliyor. Sayfalarda "Taslak" uyarısı var ve arama motorlarına kapalılar |
-| 6 | **Panel ekran görüntüleri** (aşağıdaki liste) | Ana sayfa, Özellikler, Nasıl çalışır | `site/gorseller/ekran/` | **8'den 5'i geldi.** Kalan 3 ekranın yerinde açıkça "YER TUTUCU" yazan görseller var |
+| 6 | **Panel ekran görüntüleri** (aşağıdaki liste) | Ana sayfa, Özellikler, Nasıl çalışır | `site/gorseller/ekran/` | **8'den 6'sı geldi.** Sitede yer tutucu olarak yalnızca Kurulum sihirbazı kaldı (Nasıl çalışır sayfası); Geri alma isteğe bağlı |
 | 7 | **Örnek sonuçlar** (önce / sonra ölçümü) | Ana sayfanın "Örnek sonuçlar" bölümü | `site/index.html` (`ornek-sonuclar` bölümü) | Bekliyor. Yayından önce ya doldurun ya da gizleyin (aşağıya bakın) |
 | 8 | **Fiyatlar** (kesinleşince, isterseniz) | Paketler sayfası | `site/paketler.html` içindeki işaretli "PAKET BİLGİLERİ" bloğu | Şimdilik "Fiyatlar ve satın alma Ideasoft App Store'da" yazıyor |
 | — | Logo ve ikonlar | Her sayfa | `site/marka/` | **Tamam:** gönderdiğiniz logo paketinden eklendi |
@@ -31,7 +31,7 @@ hızlı yüklenen WebP biçiminde iki boyutta yerleştirir.
 | Uyarılar | `uyarilar` | Ana sayfa (panel turu), Özellikler | **Tamam** |
 | Kategori analizi | `kategori-analizi` | Ana sayfa (panel turu), Özellikler | **Tamam** |
 | Yeni ürün otopilotu | `otopilot` | Ana sayfa (panel turu), Özellikler | **Tamam** |
-| Ürün SEO'su (hazırlanan başlık, meta açıklama ve açıklamanın kontrol edilip gönderildiği ekran) | `urun-seo` | Ana sayfa (panel turu), Özellikler | Bekliyor |
+| Ürün SEO'su (hazırlanan başlık, meta açıklama ve açıklamanın kontrol edilip gönderildiği ekran) | `urun-seo` | Ana sayfa (panel turu), Özellikler | **Tamam** |
 | Açıklama şablonu (görünüm seçimi ve canlı önizleme) | `aciklama-sablonu` | Ana sayfa (panel turu), Özellikler | **Tamam** |
 | Kurulum sihirbazı (4 adım) | `kurulum-sihirbazi` | Nasıl çalışır | Bekliyor |
 | Değişiklik geçmişi ve tek tuşla geri alma | `geri-alma` | Şu an kullanılmıyor (isteğe bağlı) | Bekliyor |

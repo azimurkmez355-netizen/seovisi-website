@@ -3,5 +3,6 @@
   {"ad": "uyarilar", "kaynak": "kaynak/uyarilar.webp", "genislik_siniri": 1500, "yakin": [878, 190, 1496, 396], "yakin_genislik": 760, "etiket": "Fiyat, stok, kopya ve kırık bağlantı uyarıları"},
   {"ad": "kategori-analizi", "kaynak": "kaynak/kategori-analizi.webp", "yakin": [280, 88, 976, 312], "yakin_genislik": 740, "etiket": "Kategori analizi ve düzeltme"},
   {"ad": "otopilot", "kaynak": "kaynak/otopilot.webp", "yakin": [286, 292, 1160, 518], "yakin_genislik": 760, "etiket": "Onaylı ya da otomatik gönderim"},
+  {"ad": "urun-seo", "kaynak": "kaynak/urun-seo.webp", "yakin": [284, 86, 1000, 398], "yakin_genislik": 740, "etiket": "Hazırlanan açıklamalar · son kontrol sizde"},
   {"ad": "aciklama-sablonu", "kaynak": "kaynak/aciklama-sablonu.webp", "yakin": [300, 356, 860, 636], "yakin_genislik": 740, "etiket": "4 görünüm, ana renk ve canlı önizleme"}
 ]
